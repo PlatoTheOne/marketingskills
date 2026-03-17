@@ -6,6 +6,7 @@ on:
     paths:
       - "index.html"
       - "README.html"
+      - "openclaw-tailor-resume-guide.html"
       - "assets/**"
       - "favicon.ico"
       - "favicon-32x32.png"
@@ -45,6 +46,9 @@ jobs:
             cp README.html _site/index.html
           fi
           cp README.html _site/README.html
+          if [ -f openclaw-tailor-resume-guide.html ]; then
+            cp openclaw-tailor-resume-guide.html _site/openclaw-tailor-resume-guide.html
+          fi
           if [ -d assets ]; then
             cp -R assets _site/assets
           fi

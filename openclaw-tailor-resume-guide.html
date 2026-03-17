@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailor Resume Skill 快速指南</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --surface: #121212;
+      --surface-2: #171717;
+      --text: #ffffff;
+      --muted: #c8c8c8;
+      --brand: #00d632;
+      --border: rgba(255, 255, 255, 0.14);
+      --radius-card: 28px;
+      --radius-pill: 9999px;
+      --shadow-brand: 0 0 24px rgba(0, 214, 50, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Space Mono", "Noto Sans SC", "Microsoft YaHei", monospace;
+      line-height: 1.6;
+    }
+
+    body {
+      min-height: 100vh;
+      background-image:
+        radial-gradient(circle at 15% 5%, rgba(0, 214, 50, 0.18), transparent 40%),
+        radial-gradient(circle at 80% 0%, rgba(0, 214, 50, 0.12), transparent 35%),
+        linear-gradient(180deg, #020202 0%, #000000 60%);
+    }
+
+    .wrapper {
+      width: min(1120px, 92vw);
+      margin: 48px auto 64px;
+    }
+
+    .hero {
+      position: relative;
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      padding: 34px 34px 26px;
+      background: linear-gradient(165deg, rgba(0, 214, 50, 0.08), rgba(255, 255, 255, 0.02));
+      overflow: hidden;
+      animation: fade-in-up 520ms ease-out both;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(0, 214, 50, 0.35), transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 214, 50, 0.45);
+      color: var(--brand);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      margin-top: 14px;
+      font-size: clamp(28px, 5vw, 42px);
+      letter-spacing: 0.02em;
+    }
+
+    .lead {
+      margin: 14px 0 0;
+      max-width: 850px;
+      color: var(--muted);
+      font-size: clamp(14px, 2.2vw, 16px);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      animation: fade-in-up 650ms ease-out both;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 22px 20px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: var(--brand);
+      letter-spacing: 0.03em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quick-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quick-list li + li {
+      margin-top: 8px;
+    }
+
+    .two-col {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 26px;
+      align-items: stretch;
+      animation: fade-in-up 760ms ease-out both;
+    }
+
+    .prompt-card {
+      background: linear-gradient(180deg, var(--surface), var(--surface-2));
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      min-height: 520px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .prompt-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0, 214, 50, 0.5);
+      box-shadow: var(--shadow-brand);
+    }
+
+    .prompt-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .prompt-title {
+      font-size: 20px;
+      color: var(--brand);
+      letter-spacing: 0.03em;
+    }
+
+    .hint {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .code-block {
+      margin: 0;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: #0b0b0b;
+      color: #ebebeb;
+      font-size: 13px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      flex: 1;
+    }
+
+    .btn {
+      border: 1px solid rgba(0, 214, 50, 0.6);
+      background: var(--brand);
+      color: #001106;
+      font-weight: 700;
+      border-radius: var(--radius-pill);
+      padding: 9px 16px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      transition: transform 0.15s ease, filter 0.2s ease;
+    }
+
+    .btn:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .status {
+      margin-top: 10px;
+      min-height: 20px;
+      font-size: 12px;
+      color: var(--brand);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    @media (max-width: 980px) {
+      .grid-3,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .prompt-card {
+        min-height: auto;
+      }
+    }
+
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrapper">
+    <section class="hero">
+      <span class="badge">OpenClaw / OpenCloud 可用</span>
+      <h1>Tailor Resume Skill 上手页</h1>
+      <p class="lead">
+        这个 skill 的核心作用是：把你的原始简历和 JD 一起读进去，自动生成更匹配岗位的简历版本。
+        支持单 JD、批量 JD、输出 Word（.docx），适合快速投递和岗位定向优化。
+      </p>
+    </section>
+
+    <section class="grid grid-3">
+      <article class="card">
+        <h2>安装话术（发给 OpenClaw）</h2>
+        <p>让 OpenClaw 自动帮你安装：</p>
+        <pre class="code-block" id="install-text">请帮我安装这个 Agent Skill：https://github.com/rongmiao926-hub/codex-tailor-resume-skill
+
+要求：
+1) 克隆仓库
+2) 把 `tailor-resume` 目录安装到这两个位置（都放一份）：
+   - ~/.agents/skills/tailor-resume
+   - ~/.openclaw/skills/tailor-resume
+3) 安装后检查并回报：
+   - `SKILL.md` 是否存在
+   - frontmatter 的 name/description 是否正常
+4) 如果已存在旧版本，先覆盖更新
+5) 最后告诉我“如何触发这个 skill”，并给一个最短使用示例</pre>
+        <div class="status" id="install-status"></div>
+        <button class="btn" data-copy="install-text" data-status="install-status">复制安装话术</button>
+      </article>
+
+      <article class="card">
+        <h2>你要准备的材料</h2>
+        <ul class="quick-list">
+          <li>原始简历（建议 Markdown 或文本）</li>
+          <li>JD 文件（1 个或多个，最好放同一个文件夹）</li>
+          <li>可选：`template.docx`（想套用的版式）</li>
+          <li>本机有 `pandoc`（用于导出 Word）</li>
+        </ul>
+        <pre class="code-block"># 检查是否支持导出 docx
+pandoc --version</pre>
+      </article>
+
+      <article class="card">
+        <h2>怎么选：通用版 vs 定制版</h2>
+        <ul class="quick-list">
+          <li>通用版：一份简历覆盖多个 JD，省时间但匹配度中等。</li>
+          <li>定制版：每个 JD 一份简历，最匹配，投递命中率更高。</li>
+          <li>推荐策略：先做 1 份通用版，再给重点岗位做定制版。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid two-col">
+      <article class="prompt-card">
+        <div class="prompt-head">
+          <h3 class="prompt-title">左栏：生成通用版简历（1 份）</h3>
+          <button class="btn" data-copy="general-prompt" data-status="general-status">复制话术</button>
+        </div>
+        <p class="hint">
+          适合一次性覆盖多个 JD。会先提炼共性，再输出 1 份“通用版”并标注各 JD 匹配度。
+        </p>
+        <pre class="code-block" id="general-prompt">使用 $tailor-resume。
+我的简历在：D:\resume\all\
+JD 在：D:\resume\jds\（多个JD）
+
+请读取所有JD后，先提炼共同要求（高频技能、核心职责、硬性条件），
+再基于我的原始简历生成“一份通用版”中文简历（1页），并导出 .docx。
+样式参考：D:\resume\template.docx
+
+最后请附一张简表：对每个JD的匹配度（高/中/低）+ 主要缺口（1-3条）。</pre>
+        <div class="status" id="general-status"></div>
+      </article>
+
+      <article class="prompt-card">
+        <div class="prompt-head">
+          <h3 class="prompt-title">右栏：生成定制版简历（多份）</h3>
+          <button class="btn" data-copy="custom-prompt" data-status="custom-status">复制话术</button>
+        </div>
+        <p class="hint">
+          适合重点投递。每个 JD 生成一份对应简历和 Word，匹配度最高。
+        </p>
+        <pre class="code-block" id="custom-prompt">使用 $tailor-resume。
+我的简历在：D:\resume\all\
+JD 在：D:\resume\jds\（多个JD）
+先分析所有JD的共同要求，再为每个JD分别生成一份定制简历，并导出 .docx。
+样式参考：D:\resume\template.docx
+最后给我每份简历对应的岗位文件名。</pre>
+        <div class="status" id="custom-status"></div>
+      </article>
+    </section>
+
+    <p class="footer-note">
+      小提醒：OpenClaw 和 OpenCloud 常被混着叫。你实际使用时，只要客户端支持 Agent Skills 并能读取 `~/.agents/skills` 或 `~/.openclaw/skills`，这个技能就能用。
+    </p>
+  </main>
+
+  <script>
+    function copyById(textId, statusId) {
+      const textElement = document.getElementById(textId);
+      const statusElement = document.getElementById(statusId);
+      if (!textElement || !statusElement) return;
+      const text = textElement.textContent;
+
+      navigator.clipboard.writeText(text).then(function () {
+        statusElement.textContent = "已复制，可直接粘贴到 OpenClaw。";
+      }).catch(function () {
+        const area = document.createElement("textarea");
+        area.value = text;
+        document.body.appendChild(area);
+        area.select();
+        try {
+          document.execCommand("copy");
+          statusElement.textContent = "已复制（兼容模式）。";
+        } catch (error) {
+          statusElement.textContent = "复制失败，请手动选择文本复制。";
+        }
+        document.body.removeChild(area);
+      });
+    }
+
+    document.querySelectorAll("[data-copy]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        copyById(button.getAttribute("data-copy"), button.getAttribute("data-status"));
+      });
+    });
+  </script>
+</body>
+</html>
