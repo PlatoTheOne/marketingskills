@@ -4,7 +4,9 @@ on:
   push:
     branches: ["main"]
     paths:
+      - "index.html"
       - "README.html"
+      - "sync-readme-web.ps1"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
@@ -27,7 +29,12 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p _site
-          cp README.html _site/index.html
+          if [ -f index.html ]; then
+            cp index.html _site/index.html
+          else
+            cp README.html _site/index.html
+          fi
+          cp README.html _site/README.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
