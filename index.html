@@ -80,18 +80,30 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 1px;
       font-weight: 800;
       letter-spacing: 0.2px;
-      font-size: 18px;
+      font-size: 30px;
+      line-height: 1;
+      text-decoration: none;
+      color: #f2f6fa;
+      transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    .brand-dot {
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      background: var(--cash-green);
-      box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.16);
+    .brand:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .brand-seven {
+      color: var(--cash-green);
+      font-weight: 800;
+    }
+
+    .brand-rest {
+      color: #eef3f8;
+      font-weight: 800;
+      letter-spacing: -0.4px;
     }
 
     .nav {
@@ -162,6 +174,34 @@
       margin-bottom: 12px;
       position: relative;
       z-index: 1;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 213, 75, 0.25);
+    }
+
+    .badge-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #00e054;
+      color: #0b0f12;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 18px;
+      line-height: 1;
+      box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .badge-text {
+      color: #061e0d;
+      font-weight: 800;
+      letter-spacing: 0.1px;
     }
 
     .hero h1 {
@@ -213,6 +253,12 @@
       color: #d9e4ec;
       border-color: rgba(255, 255, 255, 0.22);
       background: rgba(255, 255, 255, 0.04);
+    }
+
+    .btn-original {
+      color: #d5ffe3;
+      border-color: rgba(0, 213, 75, 0.45);
+      background: rgba(0, 213, 75, 0.08);
     }
 
     .hero-side {
@@ -691,6 +737,10 @@
         max-width: none;
       }
 
+      .brand {
+        font-size: 24px;
+      }
+
       .org-head::after,
       .org-grid::before,
       .org-col::before {
@@ -721,7 +771,7 @@
 
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand"><span class="brand-dot"></span>Marketing Skills 网页版</div>
+      <a class="brand" href="https://7poster.com/en" target="_blank" rel="noreferrer"><span class="brand-seven">7</span><span class="brand-rest">Poster.com</span></a>
       <nav class="nav">
         <a href="#intro">概览</a>
         <a href="#org">组织图</a>
@@ -735,13 +785,14 @@
   <main class="container">
     <section id="intro" class="hero">
       <article class="hero-main">
-        <span class="badge">Cash App Inspired UI</span>
-        <h1>Marketing Skills for AI Agents</h1>
+        <a class="badge" href="https://getpaidstudio.com/" target="_blank" rel="noreferrer"><span class="badge-icon">G</span><span class="badge-text">GetPaid Studio</span></a>
+        <h1>为 ai agents 打造的 Marketing Skills</h1>
         <p>这是面向技术型营销人和创业者的技能库，帮助你在 Claude Code、Codex、Cursor、Windsurf 等代理中把营销执行真正跑起来。</p>
         <p>核心覆盖：转化优化、文案写作、SEO、数据分析、增长工程、RevOps。</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://github.com/PlatoTheOne/marketingskills" target="_blank" rel="noreferrer">查看仓库</a>
           <a class="btn btn-ghost" href="https://github.com/PlatoTheOne/marketingskills/blob/main/README.md" target="_blank" rel="noreferrer">查看 README.md</a>
+          <a class="btn btn-original" href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noreferrer">原仓库</a>
         </div>
       </article>
 
