@@ -353,6 +353,166 @@
       font-size: 16px;
     }
 
+    .openclaw-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(320px, 1fr));
+      gap: 14px;
+    }
+
+    .openclaw-card {
+      margin: 0;
+    }
+
+    .openclaw-trigger {
+      position: relative;
+      width: 100%;
+      display: block;
+      border: 1px solid #2f3b47;
+      border-radius: 16px;
+      background: linear-gradient(170deg, #0f1419, #10171f);
+      padding: 0;
+      overflow: hidden;
+      cursor: zoom-in;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
+
+    .openclaw-trigger:hover {
+      transform: translateY(-2px);
+      border-color: color-mix(in srgb, var(--cash-green), #496177 55%);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.36);
+    }
+
+    .openclaw-trigger::after {
+      content: "点击放大";
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(8, 12, 16, 0.72);
+      color: #e5eef6;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1px;
+      z-index: 2;
+    }
+
+    .openclaw-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .openclaw-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      padding: 20px;
+      color: #a8b6c4;
+      font-size: 14px;
+      line-height: 1.6;
+      background:
+        radial-gradient(580px 220px at 30% -20%, rgba(0, 213, 75, 0.18), transparent 72%),
+        #0e141b;
+    }
+
+    .openclaw-trigger.missing {
+      cursor: default;
+      border-style: dashed;
+    }
+
+    .openclaw-trigger.missing::after,
+    .openclaw-trigger.missing .openclaw-image {
+      display: none;
+    }
+
+    .openclaw-trigger.missing .openclaw-fallback {
+      display: flex;
+    }
+
+    .openclaw-source {
+      margin-top: 12px;
+      text-align: center;
+      color: #95a4b2;
+      font-size: 14px;
+      letter-spacing: 0.08px;
+    }
+
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(5, 8, 11, 0.84);
+      backdrop-filter: blur(4px);
+      cursor: zoom-out;
+    }
+
+    .lightbox-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, 94vw);
+      border-radius: 18px;
+      border: 1px solid #33404d;
+      background: #0f141a;
+      overflow: hidden;
+      box-shadow: 0 26px 58px rgba(0, 0, 0, 0.48);
+    }
+
+    .lightbox-dialog img {
+      width: 100%;
+      max-height: min(84vh, 900px);
+      display: block;
+      object-fit: contain;
+      background: #070b0f;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(8, 12, 16, 0.82);
+      color: #edf4fb;
+      padding: 6px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      background: var(--cash-green);
+      border-color: var(--cash-green);
+      color: #04240f;
+    }
+
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
     .org {
       margin-top: 18px;
     }
@@ -811,35 +971,136 @@
     }
 
     .workflow-grid {
-      margin-top: 14px;
+      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(2, minmax(320px, 1fr));
-      gap: 12px;
+      gap: 18px;
+      align-items: start;
     }
 
     .workflow-role {
-      background: #121920;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 12px;
+      --role-accent: #00d54b;
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        #10171e;
+      border: 1px solid #304050;
+      border-radius: 16px;
+      padding: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .workflow-role h3 {
+    .workflow-role::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 4px;
+      border-radius: 4px;
+      background: linear-gradient(180deg, var(--role-accent), color-mix(in srgb, var(--role-accent), #000 35%));
+      opacity: 0.95;
+    }
+
+    .workflow-role::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(220px 80px at 10% 0%, color-mix(in srgb, var(--role-accent), transparent 84%), transparent 72%);
+      pointer-events: none;
+    }
+
+    .workflow-role:hover {
+      border-color: color-mix(in srgb, var(--role-accent), #a6d8bc 38%);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.34);
+    }
+
+    .workflow-role:nth-child(1) { --role-accent: #00d54b; }
+    .workflow-role:nth-child(2) { --role-accent: #36e6b0; }
+    .workflow-role:nth-child(3) { --role-accent: #49c8ff; }
+    .workflow-role:nth-child(4) { --role-accent: #67f55e; }
+    .workflow-role:nth-child(5) { --role-accent: #72d5ff; }
+    .workflow-role:nth-child(6) { --role-accent: #8bc1ff; }
+    .workflow-role:nth-child(7) { --role-accent: #9de66d; }
+
+    .role-head {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       margin: 0 0 8px;
-      font-size: 18px;
-      color: #f2f7fb;
+      padding: 8px 10px;
+      border: 1px solid color-mix(in srgb, var(--role-accent), #425162 62%);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--role-accent), #0f1821 90%);
     }
 
     .role-title {
+      margin: 0;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      font-size: 19px;
+      line-height: 1.2;
+      color: #f6fbff;
+      letter-spacing: -0.1px;
     }
 
-    .role-title .ph {
-      color: var(--cash-green);
+    .role-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: color-mix(in srgb, var(--role-accent), #0b1218 35%);
+      color: #05210f;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.24);
+      flex-shrink: 0;
+    }
+
+    .role-icon .ph {
       font-size: 18px;
+      font-weight: 700;
       line-height: 1;
+    }
+
+    .role-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .role-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--role-accent), #5a6a79 56%);
+      background: rgba(10, 16, 22, 0.86);
+      color: #e8f4ff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15px;
+      white-space: nowrap;
+    }
+
+    .role-brief {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 12px;
+      padding-left: 10px;
+      color: #b9c7d4;
+      font-size: 13px;
+      line-height: 1.58;
+      border-left: 2px solid color-mix(in srgb, var(--role-accent), #1b2530 65%);
     }
 
     .workflow-list {
@@ -848,9 +1109,10 @@
     }
 
     .workflow-item {
+      position: relative;
       border: 1px solid #2b3743;
       border-radius: 12px;
-      background: #0f1419;
+      background: linear-gradient(180deg, #0f151c, #0d1319);
       padding: 10px;
       display: grid;
       gap: 7px;
@@ -867,8 +1129,12 @@
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.2px;
-      color: #00e56a;
+      color: #041f0e;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: color-mix(in srgb, var(--role-accent), #111920 20%);
+      border: 1px solid color-mix(in srgb, var(--role-accent), #36424d 56%);
+      border-radius: 999px;
+      padding: 2px 8px;
     }
 
     .workflow-name {
@@ -944,6 +1210,10 @@
         grid-template-columns: 1fr;
       }
 
+      .openclaw-grid {
+        grid-template-columns: 1fr;
+      }
+
       .org-grid {
         grid-template-columns: repeat(3, minmax(180px, 1fr));
       }
@@ -986,6 +1256,20 @@
       .category-grid {
         grid-template-columns: 1fr;
       }
+
+      .role-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .role-title {
+        font-size: 17px;
+      }
+
+      .role-meta {
+        width: 100%;
+        justify-content: flex-start;
+      }
     }
 
     @keyframes rise {
@@ -1008,6 +1292,7 @@
       <a class="brand" href="https://7poster.com/en" target="_blank" rel="noreferrer"><span class="brand-seven">7</span><span class="brand-rest">Poster.com</span></a>
       <nav class="nav">
         <a href="#intro">概览</a>
+        <a href="#openclaw">OpenClaw</a>
         <a href="#org">组织图</a>
         <a href="#workflows">工作流</a>
         <a href="#skills">Skills</a>
@@ -1036,6 +1321,25 @@
         <div class="metric"><h3>7</h3><p>能力域协同组织</p></div>
         <div class="metric"><h3>6</h3><p>安装路径（CLI / 插件 / Submodule / SkillKit 等）</p></div>
       </aside>
+    </section>
+
+    <section id="openclaw">
+      <h2 class="module-title"><i class="ph ph-rocket-launch"></i><span>OpenClaw是什么，将改变什么</span></h2>
+      <div class="openclaw-grid">
+        <figure class="openclaw-card">
+          <button class="openclaw-trigger" type="button" data-zoom-src="assets/images/openclaw-platform.png" data-zoom-alt="OpenClaw - 全新的计算平台">
+            <img class="openclaw-image" src="assets/images/openclaw-platform.png" alt="OpenClaw - 全新的计算平台" loading="lazy">
+            <span class="openclaw-fallback">未找到图片：assets/images/openclaw-platform.png</span>
+          </button>
+        </figure>
+        <figure class="openclaw-card">
+          <button class="openclaw-trigger" type="button" data-zoom-src="assets/images/openclaw-aaas.png" data-zoom-alt="从 SaaS 到 Agent-as-a-Service 的企业 IT 文艺复兴">
+            <img class="openclaw-image" src="assets/images/openclaw-aaas.png" alt="从 SaaS 到 Agent-as-a-Service 的企业 IT 文艺复兴" loading="lazy">
+            <span class="openclaw-fallback">未找到图片：assets/images/openclaw-aaas.png</span>
+          </button>
+        </figure>
+      </div>
+      <p class="openclaw-source">图源来自 GTC 2026发布会，由 7Poster.com 翻译。</p>
     </section>
 
     <section id="org">
@@ -1142,7 +1446,11 @@
 
       <div class="workflow-grid">
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-magnifying-glass"></i><span>SEO 与内容增长负责人</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-magnifying-glass"></i></span><span>SEO 与内容增长负责人</span></h3>
+            <div class="role-meta"><span class="role-count">4 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责自然搜索、内容矩阵、外链建设与 PSU/pSEO 规模化增长闭环。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-SEO-01</span></div>
@@ -1176,7 +1484,11 @@
         </article>
 
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-funnel-simple"></i><span>CRO 与漏斗优化经理</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-funnel-simple"></i></span><span>CRO 与漏斗优化经理</span></h3>
+            <div class="role-meta"><span class="role-count">3 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责页面到注册全链路转化提升，并通过实验框架持续放大效果。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-CRO-01</span></div>
@@ -1203,7 +1515,11 @@
         </article>
 
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-pencil-simple-line"></i><span>内容运营与品牌编辑</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-pencil-simple-line"></i></span><span>内容运营与品牌编辑</span></h3>
+            <div class="role-meta"><span class="role-count">3 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责内容主题规划、邮件生命周期和多平台分发，统一品牌表达。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-CONT-01</span></div>
@@ -1230,7 +1546,11 @@
         </article>
 
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-megaphone-simple"></i><span>Paid Growth 与实验负责人</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-megaphone-simple"></i></span><span>Paid Growth 与实验负责人</span></h3>
+            <div class="role-meta"><span class="role-count">3 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责投放策略、创意迭代和广告到激活闭环，稳定提升获客效率。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-PAID-01</span></div>
@@ -1257,7 +1577,11 @@
         </article>
 
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-arrows-clockwise"></i><span>增长与留存运营</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-arrows-clockwise"></i></span><span>增长与留存运营</span></h3>
+            <div class="role-meta"><span class="role-count">3 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责留存与推荐增长机制设计，搭建从触达到复购的循环系统。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-RET-01</span></div>
@@ -1284,7 +1608,11 @@
         </article>
 
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-handshake"></i><span>销售与 GTM 负责人</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-handshake"></i></span><span>销售与 GTM 负责人</span></h3>
+            <div class="role-meta"><span class="role-count">3 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责发布战役、销售资产和定价策略落地，打通线索到成交流程。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-GTM-01</span></div>
@@ -1311,7 +1639,11 @@
         </article>
 
         <article class="workflow-role">
-          <h3 class="role-title"><i class="ph ph-compass-tool"></i><span>策略与心理模型负责人</span></h3>
+          <div class="role-head">
+            <h3 class="role-title"><span class="role-icon"><i class="ph ph-compass-tool"></i></span><span>策略与心理模型负责人</span></h3>
+            <div class="role-meta"><span class="role-count">3 个工作流</span></div>
+          </div>
+          <p class="role-brief">负责从市场洞察到执行策略，并用心理模型设计高转化实验。</p>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-STR-01</span></div>
@@ -1527,6 +1859,14 @@ npx skillkit install coreyhaines31/marketingskills --list</pre>
     </section>
   </main>
 
+  <div id="imageLightbox" class="image-lightbox" aria-hidden="true">
+    <button class="lightbox-backdrop" type="button" data-lightbox-close aria-label="关闭放大预览"></button>
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="图片放大预览">
+      <button class="lightbox-close" type="button" data-lightbox-close>关闭</button>
+      <img id="lightboxImage" src="" alt="">
+    </div>
+  </div>
+
   <footer class="container">
     贡献规范：<a href="CONTRIBUTING.md">CONTRIBUTING.md</a> | 许可证：<a href="LICENSE">MIT</a>
   </footer>
@@ -1660,6 +2000,62 @@ npx skillkit install coreyhaines31/marketingskills --list</pre>
           });
         });
       });
+
+      var lightbox = document.getElementById("imageLightbox");
+      var lightboxImage = document.getElementById("lightboxImage");
+      var openclawTriggers = document.querySelectorAll(".openclaw-trigger[data-zoom-src]");
+
+      function closeLightbox() {
+        if (!lightbox || !lightboxImage) return;
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+        document.body.classList.remove("lightbox-open");
+      }
+
+      if (lightbox && lightboxImage) {
+        openclawTriggers.forEach(function (trigger) {
+          var imageNode = trigger.querySelector(".openclaw-image");
+
+          function markMissing() {
+            trigger.classList.add("missing");
+            trigger.disabled = true;
+          }
+
+          if (imageNode) {
+            imageNode.addEventListener("error", markMissing);
+            if (imageNode.complete && imageNode.naturalWidth === 0) {
+              markMissing();
+            }
+          } else {
+            markMissing();
+          }
+
+          trigger.addEventListener("click", function () {
+            if (trigger.classList.contains("missing")) return;
+            var src = trigger.getAttribute("data-zoom-src") || "";
+            var alt = trigger.getAttribute("data-zoom-alt") || "";
+            if (!src) return;
+            lightboxImage.src = src;
+            lightboxImage.alt = alt;
+            lightbox.classList.add("open");
+            lightbox.setAttribute("aria-hidden", "false");
+            document.body.classList.add("lightbox-open");
+          });
+        });
+
+        var closeNodes = lightbox.querySelectorAll("[data-lightbox-close]");
+        closeNodes.forEach(function (node) {
+          node.addEventListener("click", closeLightbox);
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape" && lightbox.classList.contains("open")) {
+            closeLightbox();
+          }
+        });
+      }
     })();
   </script>
 </body>
