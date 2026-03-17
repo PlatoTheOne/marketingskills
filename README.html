@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketing Skills | 中文网页版</title>
+  <meta name="description" content="Marketing Skills 中文网页版：面向 AI 代理的营销技能集合。">
+  <style>
+    :root {
+      --bg: #f5efe6;
+      --bg-soft: #edf6f2;
+      --text: #17222d;
+      --text-soft: #51606f;
+      --card: #ffffff;
+      --line: #d8e0e6;
+      --accent: #ce5f24;
+      --accent-2: #146f72;
+      --accent-3: #a14516;
+      --shadow: 0 12px 36px rgba(23, 34, 45, 0.08);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(900px 400px at -5% -10%, #e4f0eb 0%, transparent 60%),
+        radial-gradient(1000px 500px at 105% -10%, #f6e2cf 0%, transparent 60%),
+        linear-gradient(140deg, var(--bg), #f8fafb 55%, var(--bg-soft));
+    }
+
+    .container {
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(245, 239, 230, 0.82);
+      border-bottom: 1px solid rgba(23, 34, 45, 0.08);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .nav a:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: #fff9f3;
+    }
+
+    .hero {
+      padding: 48px 0 26px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      background: linear-gradient(165deg, #ffffff, #fff8f1 52%, #f6fffc);
+      border: 1px solid #f0ded0;
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 30px;
+      animation: rise 0.55s ease both;
+    }
+
+    .hero-main h1 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    .hero-main p {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+    }
+
+    .hero-main p strong {
+      color: var(--accent-3);
+    }
+
+    .hero-links {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(90deg, var(--accent), #eb7f3e);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    .hero-side {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      animation: rise 0.55s ease 0.1s both;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat h3 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1;
+      color: var(--accent-2);
+    }
+
+    .stat p {
+      margin: 10px 0 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    section {
+      margin: 26px 0;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(23, 34, 45, 0.09);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 8px 30px rgba(19, 29, 39, 0.04);
+      animation: rise 0.5s ease both;
+    }
+
+    section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(22px, 2.5vw, 30px);
+      line-height: 1.3;
+    }
+
+    section > p {
+      margin: 0 0 14px;
+      color: var(--text-soft);
+    }
+
+    .org {
+      margin-top: 16px;
+      position: relative;
+      padding-top: 10px;
+    }
+
+    .root-node {
+      width: min(460px, 100%);
+      margin: 0 auto 34px;
+      background: linear-gradient(155deg, #fffbf4, #fff);
+      border: 1px solid #efdcc5;
+      border-radius: 14px;
+      padding: 14px 16px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 3;
+    }
+
+    .root-node h3 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0.2px;
+    }
+
+    .root-node p {
+      margin: 6px 0 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .org::before {
+      content: "";
+      position: absolute;
+      top: 74px;
+      left: 50%;
+      width: 2px;
+      height: 30px;
+      background: #cfd9df;
+      transform: translateX(-50%);
+    }
+
+    .branches {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .branches::before {
+      content: "";
+      position: absolute;
+      left: 2.5%;
+      right: 2.5%;
+      top: -16px;
+      height: 2px;
+      background: #cfd9df;
+    }
+
+    .branch {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .branch::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      width: 2px;
+      height: 16px;
+      background: #cfd9df;
+      transform: translateX(-50%);
+    }
+
+    .branch h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      color: var(--accent-3);
+      border-bottom: 1px dashed #eadccf;
+      padding-bottom: 6px;
+    }
+
+    .branch ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 13px;
+      color: #324150;
+    }
+
+    .mini-map {
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px dashed #d3dce2;
+      border-radius: 12px;
+      background: #fbfdff;
+      font-size: 14px;
+    }
+
+    .mini-map p {
+      margin: 0 0 8px;
+      font-weight: 700;
+      color: #33485c;
+    }
+
+    .mini-map code {
+      display: block;
+      padding: 5px 8px;
+      background: #f3f7fa;
+      border: 1px solid #deebf2;
+      border-radius: 8px;
+      margin: 6px 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+    }
+
+    .skills-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 14px 0 12px;
+    }
+
+    .skills-toolbar input {
+      width: min(360px, 100%);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .skills-table-wrap {
+      overflow: auto;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+      font-size: 14px;
+    }
+
+    thead th {
+      background: #f9f3eb;
+      color: #6b3c1c;
+      text-align: left;
+      padding: 11px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    tbody td {
+      padding: 11px;
+      border-bottom: 1px solid #eef2f5;
+      vertical-align: top;
+    }
+
+    tbody tr:hover {
+      background: #fcfffe;
+    }
+
+    tbody td:first-child {
+      white-space: nowrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      color: var(--accent-2);
+      font-weight: 600;
+    }
+
+    .install-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .install-card {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .install-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    pre {
+      margin: 12px 0 0;
+      background: #1f2933;
+      color: #f4f7fb;
+      border: 1px solid #0f1419;
+      border-radius: 12px;
+      padding: 12px;
+      overflow: auto;
+      font-size: 13px;
+      line-height: 1.5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .cat {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 13px 14px;
+    }
+
+    .cat h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: var(--accent-3);
+    }
+
+    .cat ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 14px;
+      color: #2f3f4d;
+    }
+
+    .muted {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .foot {
+      text-align: center;
+      color: #5a6875;
+      padding: 22px 0 36px;
+      font-size: 14px;
+    }
+
+    .foot a {
+      color: var(--accent-2);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1180px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .branches {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
+      .install-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        width: 100%;
+      }
+
+      section {
+        padding: 18px;
+      }
+
+      .org::before,
+      .branches::before,
+      .branch::before {
+        display: none;
+      }
+
+      .branches {
+        grid-template-columns: 1fr;
+      }
+
+      .categories,
+      .install-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Marketing <span>Skills</span> 中文网页版</div>
+      <nav class="nav">
+        <a href="#intro">概览</a>
+        <a href="#org">组织架构图</a>
+        <a href="#skills">技能清单</a>
+        <a href="#install">安装</a>
+        <a href="#usage">用法</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="intro" class="hero">
+      <div class="hero-main">
+        <h1>面向 AI 代理的 Marketing Skills</h1>
+        <p>这是一个面向营销场景的 AI 代理技能集合，帮助技术型营销人和创业者把 AI 编码代理用于 <strong>转化率优化、文案写作、SEO、数据分析与增长工程</strong>。</p>
+        <p>支持 Claude Code、OpenAI Codex、Cursor、Windsurf，以及任何兼容 Agent Skills 规范的代理。</p>
+        <p class="muted">作者：<a href="https://corey.co?ref=marketingskills" target="_blank" rel="noreferrer">Corey Haines</a>。商业服务：<a href="https://conversionfactory.co?ref=marketingskills" target="_blank" rel="noreferrer">Conversion Factory</a>。学习社区：<a href="https://swipefiles.com?ref=marketingskills" target="_blank" rel="noreferrer">Swipe Files</a>。AI CMO：<a href="https://magistermarketing.com?ref=marketingskills" target="_blank" rel="noreferrer">Magister</a>。</p>
+        <div class="hero-links">
+          <a class="btn btn-primary" href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noreferrer">查看 GitHub 仓库</a>
+          <a class="btn btn-secondary" href="README.md">返回 README.md</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="stat">
+          <h3>33+</h3>
+          <p>覆盖从 SEO、CRO 到 RevOps 的营销技能</p>
+        </div>
+        <div class="stat">
+          <h3>6</h3>
+          <p>种安装方式：CLI、插件、Submodule、SkillKit 等</p>
+        </div>
+        <div class="stat">
+          <h3>v1.0+</h3>
+          <p>上下文文件迁移到 <code>.agents/</code>，并保留 <code>.claude/</code> 回退兼容</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>什么是 Skill？</h2>
+      <p>Skill 是 Markdown 文件，给 AI 代理提供特定任务的专业知识与工作流。把 skill 接入项目后，代理能够自动识别营销场景，并调用对应的方法框架与最佳实践。</p>
+    </section>
+
+    <section id="org">
+      <h2>技能协同组织架构图（中文版）</h2>
+      <p>下图将 README 中原先的 ASCII 关系图翻译为中文结构展示。核心思路是：所有执行都从 <code>product-marketing-context</code> 出发，再分流到各能力域。</p>
+
+      <div class="org">
+        <div class="root-node">
+          <h3>product-marketing-context</h3>
+          <p>所有其他 skills 在执行前都会优先读取</p>
+        </div>
+
+        <div class="branches">
+          <article class="branch">
+            <h4>SEO 与内容</h4>
+            <ul>
+              <li>seo-audit</li>
+              <li>ai-seo</li>
+              <li>site-architecture</li>
+              <li>programmatic-seo</li>
+              <li>schema-markup</li>
+              <li>content-strategy</li>
+            </ul>
+          </article>
+          <article class="branch">
+            <h4>转化优化（CRO）</h4>
+            <ul>
+              <li>page-cro</li>
+              <li>signup-flow-cro</li>
+              <li>onboarding-cro</li>
+              <li>form-cro</li>
+              <li>popup-cro</li>
+              <li>paywall-upgrade-cro</li>
+            </ul>
+          </article>
+          <article class="branch">
+            <h4>内容与文案</h4>
+            <ul>
+              <li>copywriting</li>
+              <li>copy-editing</li>
+              <li>cold-email</li>
+              <li>email-sequence</li>
+              <li>social-content</li>
+            </ul>
+          </article>
+          <article class="branch">
+            <h4>付费获客与衡量</h4>
+            <ul>
+              <li>paid-ads</li>
+              <li>ad-creative</li>
+              <li>ab-test-setup</li>
+              <li>analytics-tracking</li>
+            </ul>
+          </article>
+          <article class="branch">
+            <h4>增长与留存</h4>
+            <ul>
+              <li>referral-program</li>
+              <li>free-tool-strategy</li>
+              <li>churn-prevention</li>
+            </ul>
+          </article>
+          <article class="branch">
+            <h4>销售与 GTM</h4>
+            <ul>
+              <li>revops</li>
+              <li>sales-enablement</li>
+              <li>launch-strategy</li>
+              <li>pricing-strategy</li>
+              <li>competitor-alternatives</li>
+            </ul>
+          </article>
+          <article class="branch">
+            <h4>战略层</h4>
+            <ul>
+              <li>marketing-ideas</li>
+              <li>marketing-psychology</li>
+              <li>lead-magnets</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="mini-map">
+        <p>常见交叉引用链路</p>
+        <code>copywriting -> page-cro -> ab-test-setup</code>
+        <code>revops -> sales-enablement -> cold-email</code>
+        <code>seo-audit -> schema-markup -> ai-seo</code>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>可用 Skills</h2>
+      <p>你可以在下方快速筛选技能名或描述关键词。</p>
+      <div class="skills-toolbar">
+        <input id="skillFilter" type="text" placeholder="搜索 skill：例如 cro / seo / pricing / revops">
+        <span class="muted">共 33 项</span>
+      </div>
+      <div class="skills-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody id="skillsBody">
+            <tr><td>ab-test-setup</td><td>用于规划、设计、实施 A/B 测试与实验。</td></tr>
+            <tr><td>ad-creative</td><td>用于生成、迭代和规模化广告创意（标题、描述、主文案、整条广告）。</td></tr>
+            <tr><td>ai-seo</td><td>用于 AI 搜索优化、LLM 引用争取与 AI 回答曝光。</td></tr>
+            <tr><td>analytics-tracking</td><td>用于搭建、优化与审计分析追踪与效果衡量。</td></tr>
+            <tr><td>churn-prevention</td><td>用于降低流失：取消流程、挽回优惠、失败支付恢复。</td></tr>
+            <tr><td>cold-email</td><td>用于撰写高回复率 B2B 冷邮件与跟进序列。</td></tr>
+            <tr><td>competitor-alternatives</td><td>用于竞品对比页与替代页，服务 SEO 和销售赋能。</td></tr>
+            <tr><td>content-strategy</td><td>用于制定内容策略、主题规划与内容优先级。</td></tr>
+            <tr><td>copy-editing</td><td>用于编辑、审阅、润色已有营销文案。</td></tr>
+            <tr><td>copywriting</td><td>用于营销页面文案撰写与重写（首页、落地页等）。</td></tr>
+            <tr><td>email-sequence</td><td>用于创建或优化自动化邮件序列与生命周期邮件。</td></tr>
+            <tr><td>form-cro</td><td>用于优化非注册类表单：线索表单、联系表单等。</td></tr>
+            <tr><td>free-tool-strategy</td><td>用于规划营销免费工具（获客、SEO 价值、转化入口）。</td></tr>
+            <tr><td>launch-strategy</td><td>用于产品发布、功能公告与上线节奏策略。</td></tr>
+            <tr><td>lead-magnets</td><td>用于 Lead Magnet 的规划、制作与优化。</td></tr>
+            <tr><td>marketing-ideas</td><td>提供 SaaS/软件营销创意、策略和灵感。</td></tr>
+            <tr><td>marketing-psychology</td><td>将心理学原则、行为科学与营销实践结合。</td></tr>
+            <tr><td>onboarding-cro</td><td>用于注册后引导优化、激活与首个价值达成。</td></tr>
+            <tr><td>page-cro</td><td>用于任意营销页面的转化率提升。</td></tr>
+            <tr><td>paid-ads</td><td>用于 Google/Meta/LinkedIn/Twitter(X) 等平台投放。</td></tr>
+            <tr><td>paywall-upgrade-cro</td><td>用于应用内付费墙、升级页、功能门槛等升级场景。</td></tr>
+            <tr><td>popup-cro</td><td>用于弹窗、模态框、滑入层、横幅转化优化。</td></tr>
+            <tr><td>pricing-strategy</td><td>用于定价、套餐设计与变现策略。</td></tr>
+            <tr><td>product-marketing-context</td><td>用于创建与更新产品营销上下文文档。</td></tr>
+            <tr><td>programmatic-seo</td><td>用于模板+数据驱动的规模化 SEO 页面生成。</td></tr>
+            <tr><td>referral-program</td><td>用于推荐计划、联盟计划、口碑增长策略。</td></tr>
+            <tr><td>revops</td><td>用于收入运营、线索生命周期与市场销售衔接。</td></tr>
+            <tr><td>sales-enablement</td><td>用于销售资料、Deck、异议处理文档、Demo 脚本。</td></tr>
+            <tr><td>schema-markup</td><td>用于结构化数据和 schema 标记优化。</td></tr>
+            <tr><td>seo-audit</td><td>用于网站 SEO 诊断、审计与问题定位。</td></tr>
+            <tr><td>signup-flow-cro</td><td>用于注册流程、试用激活流程优化。</td></tr>
+            <tr><td>site-architecture</td><td>用于站点层级、导航、URL 与内链结构优化。</td></tr>
+            <tr><td>social-content</td><td>用于社媒内容创作、发布节奏与增长策略。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="install">
+      <h2>安装方式</h2>
+      <p>README 中的 6 种安装方式都可以继续沿用。</p>
+      <div class="install-grid">
+        <article class="install-card">
+          <h3>方式 1：CLI（推荐）</h3>
+          <p class="muted">通过 <code>npx skills</code> 直接安装全部或指定 skill。</p>
+          <pre>npx skills add coreyhaines31/marketingskills
+npx skills add coreyhaines31/marketingskills --skill page-cro copywriting
+npx skills add coreyhaines31/marketingskills --list</pre>
+        </article>
+        <article class="install-card">
+          <h3>方式 2：Claude Code 插件</h3>
+          <p class="muted">先添加 marketplace，再安装 marketing-skills。</p>
+          <pre>/plugin marketplace add coreyhaines31/marketingskills
+/plugin install marketing-skills</pre>
+        </article>
+        <article class="install-card">
+          <h3>方式 3：Clone + Copy</h3>
+          <p class="muted">克隆后复制 <code>skills</code> 文件夹到 <code>.agents/skills/</code>。</p>
+          <pre>git clone https://github.com/coreyhaines31/marketingskills.git
+cp -r marketingskills/skills/* .agents/skills/</pre>
+        </article>
+        <article class="install-card">
+          <h3>方式 4：Git Submodule</h3>
+          <p class="muted">适合团队维护和后续统一更新。</p>
+          <pre>git submodule add https://github.com/coreyhaines31/marketingskills.git .agents/marketingskills</pre>
+        </article>
+        <article class="install-card">
+          <h3>方式 5：Fork 定制</h3>
+          <p class="muted">Fork 仓库后按业务场景定制 skill，再接回项目。</p>
+        </article>
+        <article class="install-card">
+          <h3>方式 6：SkillKit（多代理）</h3>
+          <p class="muted">适合 Claude Code、Cursor、Copilot 等多代理统一安装。</p>
+          <pre>npx skillkit install coreyhaines31/marketingskills
+npx skillkit install coreyhaines31/marketingskills --skill page-cro copywriting
+npx skillkit install coreyhaines31/marketingskills --list</pre>
+        </article>
+      </div>
+    </section>
+
+    <section id="usage">
+      <h2>用法示例</h2>
+      <pre>"帮我优化这个落地页的转化率" -> 使用 page-cro
+"给我的 SaaS 写首页文案" -> 使用 copywriting
+"为注册事件设置 GA4 追踪" -> 使用 analytics-tracking
+"创建一个 5 封欢迎邮件序列" -> 使用 email-sequence</pre>
+      <p>你也可以直接触发 skill：</p>
+      <pre>/page-cro
+/email-sequence
+/seo-audit</pre>
+    </section>
+
+    <section>
+      <h2>Skill 分类速览</h2>
+      <div class="categories">
+        <article class="cat">
+          <h3>转化优化</h3>
+          <ul>
+            <li>page-cro</li>
+            <li>signup-flow-cro</li>
+            <li>onboarding-cro</li>
+            <li>form-cro</li>
+            <li>popup-cro</li>
+            <li>paywall-upgrade-cro</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>内容与文案</h3>
+          <ul>
+            <li>copywriting</li>
+            <li>copy-editing</li>
+            <li>cold-email</li>
+            <li>email-sequence</li>
+            <li>social-content</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>SEO 与发现</h3>
+          <ul>
+            <li>seo-audit</li>
+            <li>ai-seo</li>
+            <li>programmatic-seo</li>
+            <li>site-architecture</li>
+            <li>competitor-alternatives</li>
+            <li>schema-markup</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>付费与分发</h3>
+          <ul>
+            <li>paid-ads</li>
+            <li>ad-creative</li>
+            <li>social-content</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>衡量与测试</h3>
+          <ul>
+            <li>analytics-tracking</li>
+            <li>ab-test-setup</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>留存与增长</h3>
+          <ul>
+            <li>churn-prevention</li>
+            <li>free-tool-strategy</li>
+            <li>referral-program</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>策略与变现</h3>
+          <ul>
+            <li>marketing-ideas</li>
+            <li>marketing-psychology</li>
+            <li>launch-strategy</li>
+            <li>pricing-strategy</li>
+          </ul>
+        </article>
+        <article class="cat">
+          <h3>销售与 RevOps</h3>
+          <ul>
+            <li>revops</li>
+            <li>sales-enablement</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container foot">
+    <p>贡献与规范：<a href="CONTRIBUTING.md">CONTRIBUTING.md</a> | 许可证：<a href="LICENSE">MIT</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var input = document.getElementById("skillFilter");
+      var tbody = document.getElementById("skillsBody");
+      if (!input || !tbody) return;
+
+      input.addEventListener("input", function () {
+        var key = input.value.trim().toLowerCase();
+        var rows = tbody.querySelectorAll("tr");
+        rows.forEach(function (row) {
+          var text = row.innerText.toLowerCase();
+          row.style.display = text.indexOf(key) > -1 ? "" : "none";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
