@@ -1096,52 +1096,33 @@
     }
 
     .workflow-role {
-      --role-accent: #00d54b;
       position: relative;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-        #10171e;
-      border: 1px solid #304050;
+      background: linear-gradient(180deg, #101821, #0f1720);
+      border: 1px solid #2f3b47;
       border-radius: 16px;
       padding: 14px;
       overflow: hidden;
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
-      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .workflow-role::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 14px;
-      bottom: 14px;
-      width: 4px;
-      border-radius: 4px;
-      background: linear-gradient(180deg, var(--role-accent), color-mix(in srgb, var(--role-accent), #000 35%));
-      opacity: 0.95;
-    }
-
+    .workflow-role::before,
     .workflow-role::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(220px 80px at 10% 0%, color-mix(in srgb, var(--role-accent), transparent 84%), transparent 72%);
-      pointer-events: none;
+      content: none;
     }
 
     .workflow-role:hover {
-      border-color: color-mix(in srgb, var(--role-accent), #a6d8bc 38%);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.34);
+      border-color: #3a4958;
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.3);
     }
 
-    .workflow-role:nth-child(1) { --role-accent: #00d54b; }
-    .workflow-role:nth-child(2) { --role-accent: #36e6b0; }
-    .workflow-role:nth-child(3) { --role-accent: #49c8ff; }
-    .workflow-role:nth-child(4) { --role-accent: #67f55e; }
-    .workflow-role:nth-child(5) { --role-accent: #72d5ff; }
-    .workflow-role:nth-child(6) { --role-accent: #8bc1ff; }
-    .workflow-role:nth-child(7) { --role-accent: #9de66d; }
+    .workflow-role:nth-child(1) .role-icon .ph { color: #18d968; }
+    .workflow-role:nth-child(2) .role-icon .ph { color: #46d9b1; }
+    .workflow-role:nth-child(3) .role-icon .ph { color: #44beff; }
+    .workflow-role:nth-child(4) .role-icon .ph { color: #70d857; }
+    .workflow-role:nth-child(5) .role-icon .ph { color: #58b7ff; }
+    .workflow-role:nth-child(6) .role-icon .ph { color: #7ca8ff; }
+    .workflow-role:nth-child(7) .role-icon .ph { color: #9ad364; }
 
     .role-head {
       position: relative;
@@ -1151,10 +1132,10 @@
       justify-content: space-between;
       gap: 10px;
       margin: 0 0 8px;
-      padding: 8px 10px;
-      border: 1px solid color-mix(in srgb, var(--role-accent), #425162 62%);
-      border-radius: 12px;
-      background: color-mix(in srgb, var(--role-accent), #0f1821 90%);
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
     }
 
     .role-title {
@@ -1169,20 +1150,20 @@
     }
 
     .role-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
+      width: auto;
+      height: auto;
+      border-radius: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: color-mix(in srgb, var(--role-accent), #0b1218 35%);
-      color: #05210f;
-      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.24);
+      background: transparent;
+      color: #7adca3;
+      box-shadow: none;
       flex-shrink: 0;
     }
 
     .role-icon .ph {
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 700;
       line-height: 1;
     }
@@ -1198,14 +1179,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid color-mix(in srgb, var(--role-accent), #5a6a79 56%);
-      background: rgba(10, 16, 22, 0.86);
-      color: #e8f4ff;
-      font-size: 12px;
+      padding: 0;
+      border-radius: 0;
+      border: 0;
+      background: transparent;
+      color: #d3dee8;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 0.15px;
+      letter-spacing: 0.1px;
       white-space: nowrap;
     }
 
@@ -1213,11 +1194,11 @@
       position: relative;
       z-index: 1;
       margin: 0 0 12px;
-      padding-left: 10px;
+      padding-left: 0;
       color: #b9c7d4;
       font-size: 13px;
       line-height: 1.58;
-      border-left: 2px solid color-mix(in srgb, var(--role-accent), #1b2530 65%);
+      border-left: 0;
     }
 
     .workflow-list {
@@ -1246,10 +1227,10 @@
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.2px;
-      color: #041f0e;
+      color: #052713;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      background: color-mix(in srgb, var(--role-accent), #111920 20%);
-      border: 1px solid color-mix(in srgb, var(--role-accent), #36424d 56%);
+      background: #25da76;
+      border: 1px solid #2be884;
       border-radius: 999px;
       padding: 2px 8px;
     }
