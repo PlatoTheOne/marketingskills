@@ -1128,10 +1128,11 @@
       position: relative;
       z-index: 1;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin: 0 0 8px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 6px;
+      margin: 0 0 10px;
       padding: 0;
       border: 0;
       border-radius: 0;
@@ -1141,12 +1142,14 @@
     .role-title {
       margin: 0;
       display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 19px;
-      line-height: 1.2;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 26px;
+      line-height: 1.22;
       color: #f6fbff;
       letter-spacing: -0.1px;
+      order: 2;
     }
 
     .role-icon {
@@ -1163,7 +1166,7 @@
     }
 
     .role-icon .ph {
-      font-size: 22px;
+      font-size: 38px;
       font-weight: 700;
       line-height: 1;
     }
@@ -1173,20 +1176,21 @@
       align-items: center;
       gap: 8px;
       flex-shrink: 0;
+      order: 1;
     }
 
     .role-count {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 0;
-      border-radius: 0;
-      border: 0;
-      background: transparent;
-      color: #d3dee8;
-      font-size: 13px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid #2d465e;
+      background: #13202c;
+      color: #dce8f3;
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 0.1px;
+      letter-spacing: 0.14px;
       white-space: nowrap;
     }
 
@@ -1196,8 +1200,8 @@
       margin: 0 0 12px;
       padding-left: 0;
       color: #b9c7d4;
-      font-size: 13px;
-      line-height: 1.58;
+      font-size: 14px;
+      line-height: 1.6;
       border-left: 0;
     }
 
@@ -1360,18 +1364,17 @@
         grid-template-columns: 1fr;
       }
 
-      .role-head {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       .role-title {
-        font-size: 17px;
+        font-size: 22px;
+        gap: 7px;
       }
 
       .role-meta {
-        width: 100%;
         justify-content: flex-start;
+      }
+
+      .role-icon .ph {
+        font-size: 32px;
       }
     }
 
@@ -1599,7 +1602,7 @@ params: {
     </section>
 
     <section id="workflows">
-      <h2 class="module-title"><i class="ph ph-flow-arrow"></i><span>岗位角色与工作流模块</span></h2>
+      <h2 class="module-title"><i class="ph ph-briefcase"></i><span>岗位角色与工作流模块</span></h2>
       <div class="workflow-intro">
         <div>结论先说：<strong>一个 skill 不是一个完整工作流</strong>。它更像单点能力；真正可执行的工作流通常由 <code>product-marketing-context + 多个 skills</code> 组合而成。</div>
         <div>你后续只要说工作流 ID（例如 <code>WF-SEO-05</code>），我就可以按该链路自动展开执行步骤、产出模板和优化建议。</div>
