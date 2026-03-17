@@ -6,6 +6,11 @@ on:
     paths:
       - "index.html"
       - "README.html"
+      - "assets/**"
+      - "favicon.ico"
+      - "favicon-32x32.png"
+      - "apple-touch-icon.png"
+      - "CNAME"
       - "sync-readme-web.ps1"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
@@ -40,6 +45,15 @@ jobs:
             cp README.html _site/index.html
           fi
           cp README.html _site/README.html
+          if [ -d assets ]; then
+            cp -R assets _site/assets
+          fi
+          for file in favicon.ico favicon-32x32.png apple-touch-icon.png CNAME; do
+            if [ -f "$file" ]; then
+              cp "$file" "_site/$file"
+            fi
+          done
+          touch _site/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

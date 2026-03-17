@@ -407,6 +407,69 @@
       font-size: 16px;
     }
 
+    .bridge-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .bridge-card {
+      border: 1px solid #2d3a46;
+      border-radius: 16px;
+      background: linear-gradient(170deg, #101820, #0f161d 58%, #0e141b);
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    .bridge-head {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      font-size: 18px;
+      color: #f2f7fc;
+      letter-spacing: -0.2px;
+    }
+
+    .bridge-head .ph {
+      color: var(--cash-green);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .bridge-desc {
+      margin: 0;
+      color: #b6c3d0;
+      font-size: 14px;
+      line-height: 1.58;
+    }
+
+    .bridge-meta {
+      margin: 0;
+      padding-left: 16px;
+      color: #8ea0b1;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .bridge-meta li {
+      margin: 2px 0;
+    }
+
+    .bridge-link {
+      width: max-content;
+      max-width: 100%;
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+
+    .bridge-code {
+      margin-top: 12px;
+    }
+
     .openclaw-grid {
       margin-top: 16px;
       display: grid;
@@ -1264,6 +1327,10 @@
         grid-template-columns: 1fr;
       }
 
+      .bridge-grid {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+      }
+
       .openclaw-grid {
         grid-template-columns: 1fr;
       }
@@ -1307,7 +1374,8 @@
 
       .org-grid,
       .install-grid,
-      .category-grid {
+      .category-grid,
+      .bridge-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1347,6 +1415,7 @@
       <nav class="nav">
         <a href="#intro">概览</a>
         <a href="#openclaw">OpenClaw</a>
+        <a href="#bridge">桥接增长</a>
         <a href="#org">组织图</a>
         <a href="#workflows">工作流</a>
         <a href="#skills">Skills</a>
@@ -1394,6 +1463,63 @@
         </figure>
       </div>
       <p class="openclaw-source">图源来自 GTC 2026发布会，由 7Poster.com 翻译。</p>
+    </section>
+
+    <section id="bridge">
+      <h2 class="module-title"><i class="ph ph-trend-up"></i><span>主站增长桥接（7Poster）</span></h2>
+      <p>把这页从“知识展示”升级为“可转化入口”：每个场景都直达主站，并携带 UTM 与 GA4 点击事件，方便你追踪真实增长贡献。</p>
+      <div class="bridge-grid">
+        <article class="bridge-card">
+          <h3 class="bridge-head"><i class="ph ph-image-square"></i><span>场景1：爆款封面快速生成</span></h3>
+          <p class="bridge-desc">给做内容、SEO、社媒分发的用户一个直接动作：立刻去主站生成封面海报。</p>
+          <ul class="bridge-meta">
+            <li>UTM：`openclaw_bridge` / `cover_generator`</li>
+            <li>事件：`bridge_click_cover_generator`</li>
+          </ul>
+          <a class="btn btn-primary bridge-link" href="https://7poster.com/en?utm_source=mkt.7poster.com&utm_medium=referral&utm_campaign=openclaw_bridge&utm_content=cover_generator" target="_blank" rel="noreferrer" data-ga4-event="bridge_click_cover_generator" data-ga4-source="bridge_module" data-ga4-content="cover_generator">去 7Poster 生成封面</a>
+        </article>
+        <article class="bridge-card">
+          <h3 class="bridge-head"><i class="ph ph-flask"></i><span>场景2：A/B 素材测试提效</span></h3>
+          <p class="bridge-desc">把工作流里的实验链路直接衔接到素材生成，提升从策略到执行的转化率。</p>
+          <ul class="bridge-meta">
+            <li>UTM：`openclaw_bridge` / `ab_test_creatives`</li>
+            <li>事件：`bridge_click_ab_test_creatives`</li>
+          </ul>
+          <a class="btn btn-ghost bridge-link" href="https://7poster.com/en?utm_source=mkt.7poster.com&utm_medium=referral&utm_campaign=openclaw_bridge&utm_content=ab_test_creatives" target="_blank" rel="noreferrer" data-ga4-event="bridge_click_ab_test_creatives" data-ga4-source="bridge_module" data-ga4-content="ab_test_creatives">去 7Poster 做 A/B 素材</a>
+        </article>
+        <article class="bridge-card">
+          <h3 class="bridge-head"><i class="ph ph-share-network"></i><span>场景3：社媒分发封面包</span></h3>
+          <p class="bridge-desc">服务内容运营角色，把“内容生产-分发-回流”的链路打通成可追踪漏斗。</p>
+          <ul class="bridge-meta">
+            <li>UTM：`openclaw_bridge` / `social_cover_pack`</li>
+            <li>事件：`bridge_click_social_cover_pack`</li>
+          </ul>
+          <a class="btn btn-ghost bridge-link" href="https://7poster.com/en?utm_source=mkt.7poster.com&utm_medium=referral&utm_campaign=openclaw_bridge&utm_content=social_cover_pack" target="_blank" rel="noreferrer" data-ga4-event="bridge_click_social_cover_pack" data-ga4-source="bridge_module" data-ga4-content="social_cover_pack">去 7Poster 做社媒封面</a>
+        </article>
+      </div>
+      <div class="bridge-code code-wrap">
+        <pre>GA4 埋点建议（可直接复用）
+event_name: bridge_click_cover_generator
+params: {
+  source_page: "mkt.7poster.com",
+  source_module: "bridge_module",
+  content_id: "cover_generator"
+}
+
+event_name: bridge_click_ab_test_creatives
+params: {
+  source_page: "mkt.7poster.com",
+  source_module: "bridge_module",
+  content_id: "ab_test_creatives"
+}
+
+event_name: bridge_click_social_cover_pack
+params: {
+  source_page: "mkt.7poster.com",
+  source_module: "bridge_module",
+  content_id: "social_cover_pack"
+}</pre>
+      </div>
     </section>
 
     <section id="org">
@@ -1963,6 +2089,19 @@ npx skillkit install coreyhaines31/marketingskills --list</pre>
         done();
       }
 
+      function trackGa4Event(eventName, params) {
+        if (!eventName) return;
+        var eventParams = params || {};
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", eventName, eventParams);
+        }
+
+        if (Array.isArray(window.dataLayer)) {
+          window.dataLayer.push(Object.assign({ event: eventName }, eventParams));
+        }
+      }
+
       var input = document.getElementById("skillFilter");
       var body = document.getElementById("skillsBody");
       var chipsWrap = document.getElementById("skillChips");
@@ -2051,6 +2190,20 @@ npx skillkit install coreyhaines31/marketingskills --list</pre>
               button.textContent = "复制";
               button.classList.remove("success");
             }, 1100);
+          });
+        });
+      });
+
+      var ga4CtaLinks = document.querySelectorAll("[data-ga4-event]");
+      ga4CtaLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+          var eventName = link.getAttribute("data-ga4-event") || "";
+          var sourceModule = link.getAttribute("data-ga4-source") || "";
+          var contentId = link.getAttribute("data-ga4-content") || "";
+          trackGa4Event(eventName, {
+            source_page: location.hostname,
+            source_module: sourceModule,
+            content_id: contentId
           });
         });
       });
