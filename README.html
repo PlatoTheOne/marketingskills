@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <style>
     :root {
       --cash-green: #00d54b;
@@ -331,6 +332,19 @@
       font-size: clamp(28px, 3.4vw, 42px);
       line-height: 1.16;
       letter-spacing: -0.5px;
+    }
+
+    .module-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .module-title .ph {
+      color: var(--cash-green);
+      font-size: 0.9em;
+      line-height: 1;
+      filter: drop-shadow(0 0 8px rgba(0, 213, 75, 0.22));
     }
 
     section > p {
@@ -816,6 +830,18 @@
       color: #f2f7fb;
     }
 
+    .role-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .role-title .ph {
+      color: var(--cash-green);
+      font-size: 18px;
+      line-height: 1;
+    }
+
     .workflow-list {
       display: grid;
       gap: 10px;
@@ -1013,7 +1039,7 @@
     </section>
 
     <section id="org">
-      <h2>技能协同组织架构图</h2>
+      <h2 class="module-title"><i class="ph ph-sitemap"></i><span>技能协同组织架构图</span></h2>
       <p>将原始 ASCII 图做成中文组织结构展示，`product-marketing-context` 作为全局前置上下文，由此分流到不同能力域。</p>
 
       <div class="org">
@@ -1108,7 +1134,7 @@
     </section>
 
     <section id="workflows">
-      <h2>岗位角色与工作流模块</h2>
+      <h2 class="module-title"><i class="ph ph-flow-arrow"></i><span>岗位角色与工作流模块</span></h2>
       <div class="workflow-intro">
         <div>结论先说：<strong>一个 skill 不是一个完整工作流</strong>。它更像单点能力；真正可执行的工作流通常由 <code>product-marketing-context + 多个 skills</code> 组合而成。</div>
         <div>你后续只要说工作流 ID（例如 <code>WF-SEO-05</code>），我就可以按该链路自动展开执行步骤、产出模板和优化建议。</div>
@@ -1116,7 +1142,7 @@
 
       <div class="workflow-grid">
         <article class="workflow-role">
-          <h3>角色 1：SEO 与内容增长负责人</h3>
+          <h3 class="role-title"><i class="ph ph-magnifying-glass"></i><span>SEO 与内容增长负责人</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-SEO-01</span></div>
@@ -1150,7 +1176,7 @@
         </article>
 
         <article class="workflow-role">
-          <h3>角色 2：CRO 与漏斗优化经理</h3>
+          <h3 class="role-title"><i class="ph ph-funnel-simple"></i><span>CRO 与漏斗优化经理</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-CRO-01</span></div>
@@ -1177,7 +1203,7 @@
         </article>
 
         <article class="workflow-role">
-          <h3>角色 3：内容运营与品牌编辑</h3>
+          <h3 class="role-title"><i class="ph ph-pencil-simple-line"></i><span>内容运营与品牌编辑</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-CONT-01</span></div>
@@ -1204,7 +1230,7 @@
         </article>
 
         <article class="workflow-role">
-          <h3>角色 4：Paid Growth 与实验负责人</h3>
+          <h3 class="role-title"><i class="ph ph-megaphone-simple"></i><span>Paid Growth 与实验负责人</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-PAID-01</span></div>
@@ -1231,7 +1257,7 @@
         </article>
 
         <article class="workflow-role">
-          <h3>角色 5：增长与留存运营</h3>
+          <h3 class="role-title"><i class="ph ph-arrows-clockwise"></i><span>增长与留存运营</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-RET-01</span></div>
@@ -1258,7 +1284,7 @@
         </article>
 
         <article class="workflow-role">
-          <h3>角色 6：销售与 GTM 负责人</h3>
+          <h3 class="role-title"><i class="ph ph-handshake"></i><span>销售与 GTM 负责人</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-GTM-01</span></div>
@@ -1285,7 +1311,7 @@
         </article>
 
         <article class="workflow-role">
-          <h3>角色 7：策略与心理模型负责人</h3>
+          <h3 class="role-title"><i class="ph ph-compass-tool"></i><span>策略与心理模型负责人</span></h3>
           <div class="workflow-list">
             <div class="workflow-item">
               <div class="workflow-head"><span class="workflow-id">WF-STR-01</span></div>
@@ -1314,7 +1340,7 @@
     </section>
 
     <section id="skills">
-      <h2>可用 Skills</h2>
+      <h2 class="module-title"><i class="ph ph-stack"></i><span>可用 Skills</span></h2>
       <p>支持关键词筛选 + 分类标签筛选。</p>
       <div class="toolbar">
         <input id="skillFilter" type="text" placeholder="搜索 skill，例如 cro / seo / pricing / revops">
@@ -1378,7 +1404,7 @@
     </section>
 
     <section id="install">
-      <h2>安装方式</h2>
+      <h2 class="module-title"><i class="ph ph-download-simple"></i><span>安装方式</span></h2>
       <p>README 中的 6 种安装方式继续沿用。</p>
       <div class="quick-cmds">
         <article class="quick-cmd quick-cmd-wide">
@@ -1471,7 +1497,7 @@ npx skillkit install coreyhaines31/marketingskills --list</pre>
     </section>
 
     <section id="usage">
-      <h2>用法示例</h2>
+      <h2 class="module-title"><i class="ph ph-terminal-window"></i><span>用法示例</span></h2>
       <div class="code-wrap">
         <pre>"帮我优化这个落地页的转化率" -> 使用 page-cro
 "给我的 SaaS 写首页文案" -> 使用 copywriting
@@ -1487,7 +1513,7 @@ npx skillkit install coreyhaines31/marketingskills --list</pre>
     </section>
 
     <section>
-      <h2>Skill 分类速览</h2>
+      <h2 class="module-title"><i class="ph ph-squares-four"></i><span>Skill 分类速览</span></h2>
       <div class="category-grid">
         <article class="cat"><h3>转化优化</h3><ul><li>page-cro</li><li>signup-flow-cro</li><li>onboarding-cro</li><li>form-cro</li><li>popup-cro</li><li>paywall-upgrade-cro</li></ul></article>
         <article class="cat"><h3>内容与文案</h3><ul><li>copywriting</li><li>copy-editing</li><li>cold-email</li><li>email-sequence</li><li>social-content</li></ul></article>
