@@ -682,6 +682,118 @@
       color: #bac7d2;
     }
 
+    .workflow-intro {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+
+    .workflow-intro code {
+      background: #11161c;
+      border: 1px solid #2a3440;
+      border-radius: 8px;
+      padding: 2px 8px;
+      color: #dbe6ef;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    .workflow-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(320px, 1fr));
+      gap: 12px;
+    }
+
+    .workflow-role {
+      background: #121920;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+    }
+
+    .workflow-role h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #f2f7fb;
+    }
+
+    .workflow-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .workflow-item {
+      border: 1px solid #2b3743;
+      border-radius: 12px;
+      background: #0f1419;
+      padding: 10px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .workflow-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .workflow-id {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: #00e56a;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    .workflow-name {
+      margin: 0;
+      font-size: 15px;
+      color: #eef5fb;
+      font-weight: 700;
+    }
+
+    .workflow-desc {
+      margin: 0;
+      font-size: 13px;
+      color: #aebac6;
+    }
+
+    .workflow-skills {
+      margin: 0;
+      font-size: 12px;
+      color: #b8c6d3;
+      line-height: 1.55;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: #111820;
+      border: 1px solid #2d3946;
+      border-radius: 9px;
+      padding: 6px 8px;
+      overflow: auto;
+      white-space: nowrap;
+    }
+
+    .workflow-call {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      border: 1px dashed #33404d;
+      border-radius: 10px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .workflow-call code {
+      color: #d7e3ee;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
     footer {
       text-align: center;
       color: var(--text-soft);
@@ -711,6 +823,10 @@
 
       .org-grid {
         grid-template-columns: repeat(3, minmax(180px, 1fr));
+      }
+
+      .workflow-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -770,6 +886,7 @@
       <nav class="nav">
         <a href="#intro">概览</a>
         <a href="#org">组织图</a>
+        <a href="#workflows">工作流</a>
         <a href="#skills">Skills</a>
         <a href="#install">安装</a>
         <a href="#usage">用法</a>
@@ -890,6 +1007,212 @@
         <div class="chain">copywriting -> page-cro -> ab-test-setup</div>
         <div class="chain">revops -> sales-enablement -> cold-email</div>
         <div class="chain">seo-audit -> schema-markup -> ai-seo</div>
+      </div>
+    </section>
+
+    <section id="workflows">
+      <h2>岗位角色与工作流模块</h2>
+      <div class="workflow-intro">
+        <div>结论先说：<strong>一个 skill 不是一个完整工作流</strong>。它更像单点能力；真正可执行的工作流通常由 <code>product-marketing-context + 多个 skills</code> 组合而成。</div>
+        <div>你后续只要说工作流 ID（例如 <code>WF-SEO-05</code>），我就可以按该链路自动展开执行步骤、产出模板和优化建议。</div>
+      </div>
+
+      <div class="workflow-grid">
+        <article class="workflow-role">
+          <h3>角色 1：SEO 与内容增长负责人</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-SEO-01</span></div>
+              <p class="workflow-name">站内 SEO 修复冲刺</p>
+              <p class="workflow-desc">用于技术 SEO、结构化数据、站点结构的一次性修复。</p>
+              <p class="workflow-skills">product-marketing-context -> seo-audit -> site-architecture -> schema-markup -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-SEO-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-SEO-01：先读取 product-marketing-context，然后按 seo-audit -> site-architecture -> schema-markup -> analytics-tracking 执行并输出修复清单。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-SEO-02</span></div>
+              <p class="workflow-name">对外内容建设（权威内容矩阵）</p>
+              <p class="workflow-desc">围绕核心主题建立外部可传播内容，提升品牌与搜索可见性。</p>
+              <p class="workflow-skills">product-marketing-context -> content-strategy -> copywriting -> social-content -> ai-seo</p>
+              <div class="workflow-call"><code>调用：WF-SEO-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-SEO-02：围绕对外内容建设执行 content-strategy -> copywriting -> social-content -> ai-seo。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-SEO-03</span></div>
+              <p class="workflow-name">外链建设与外联（Backlink Ops）</p>
+              <p class="workflow-desc">通过对比页、外联邮件、合作资产，系统化获取外链与提及。</p>
+              <p class="workflow-skills">product-marketing-context -> competitor-alternatives -> cold-email -> sales-enablement -> revops</p>
+              <div class="workflow-call"><code>调用：WF-SEO-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-SEO-03：执行外链建设流程 competitor-alternatives -> cold-email -> sales-enablement -> revops。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-SEO-05</span></div>
+              <p class="workflow-name">PSU/pSEO 内容工厂</p>
+              <p class="workflow-desc">规模化页面生产、模板数据联动、索引与转化闭环。</p>
+              <p class="workflow-skills">product-marketing-context -> programmatic-seo -> schema-markup -> ai-seo -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-SEO-05</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-SEO-05：执行 PSU/pSEO 内容建设流程 programmatic-seo -> schema-markup -> ai-seo -> analytics-tracking。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflow-role">
+          <h3>角色 2：CRO 与漏斗优化经理</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-CRO-01</span></div>
+              <p class="workflow-name">落地页转化提升</p>
+              <p class="workflow-desc">针对首页/落地页进行信息架构、文案与 CTA 一体优化。</p>
+              <p class="workflow-skills">product-marketing-context -> page-cro -> copywriting -> analytics-tracking -> ab-test-setup</p>
+              <div class="workflow-call"><code>调用：WF-CRO-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-CRO-01：执行 page-cro -> copywriting -> analytics-tracking -> ab-test-setup。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-CRO-02</span></div>
+              <p class="workflow-name">注册漏斗提效</p>
+              <p class="workflow-desc">从注册页到激活流程，压缩流失并提升完成率。</p>
+              <p class="workflow-skills">product-marketing-context -> signup-flow-cro -> form-cro -> onboarding-cro -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-CRO-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-CRO-02：执行 signup-flow-cro -> form-cro -> onboarding-cro -> analytics-tracking。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-CRO-03</span></div>
+              <p class="workflow-name">弹窗与付费墙升级实验</p>
+              <p class="workflow-desc">聚焦 upgrade 时机和价格锚点，提升升级与留存双指标。</p>
+              <p class="workflow-skills">product-marketing-context -> popup-cro -> paywall-upgrade-cro -> pricing-strategy -> ab-test-setup</p>
+              <div class="workflow-call"><code>调用：WF-CRO-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-CRO-03：执行 popup-cro -> paywall-upgrade-cro -> pricing-strategy -> ab-test-setup。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflow-role">
+          <h3>角色 3：内容运营与品牌编辑</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-CONT-01</span></div>
+              <p class="workflow-name">内容日历与主题矩阵</p>
+              <p class="workflow-desc">按 ICP、阶段、意图建立季度内容地图。</p>
+              <p class="workflow-skills">product-marketing-context -> content-strategy -> marketing-ideas -> copywriting -> copy-editing</p>
+              <div class="workflow-call"><code>调用：WF-CONT-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-CONT-01：执行 content-strategy -> marketing-ideas -> copywriting -> copy-editing。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-CONT-02</span></div>
+              <p class="workflow-name">邮件生命周期自动化</p>
+              <p class="workflow-desc">欢迎流、教育流、激活流和复购流统一编排。</p>
+              <p class="workflow-skills">product-marketing-context -> email-sequence -> copywriting -> analytics-tracking -> churn-prevention</p>
+              <div class="workflow-call"><code>调用：WF-CONT-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-CONT-02：执行 email-sequence -> copywriting -> analytics-tracking -> churn-prevention。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-CONT-03</span></div>
+              <p class="workflow-name">社媒分发与放大</p>
+              <p class="workflow-desc">将长内容拆为多平台分发包，形成稳定触达。</p>
+              <p class="workflow-skills">product-marketing-context -> social-content -> copy-editing -> analytics-tracking -> ai-seo</p>
+              <div class="workflow-call"><code>调用：WF-CONT-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-CONT-03：执行 social-content -> copy-editing -> analytics-tracking -> ai-seo。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflow-role">
+          <h3>角色 4：Paid Growth 与实验负责人</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-PAID-01</span></div>
+              <p class="workflow-name">全漏斗广告启动包</p>
+              <p class="workflow-desc">从受众假设到广告组结构、落地页与追踪一次成型。</p>
+              <p class="workflow-skills">product-marketing-context -> paid-ads -> ad-creative -> page-cro -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-PAID-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-PAID-01：执行 paid-ads -> ad-creative -> page-cro -> analytics-tracking。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-PAID-02</span></div>
+              <p class="workflow-name">广告创意迭代工厂</p>
+              <p class="workflow-desc">高频测试创意钩子、角度、证明素材，保留胜出组合。</p>
+              <p class="workflow-skills">product-marketing-context -> ad-creative -> copywriting -> ab-test-setup -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-PAID-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-PAID-02：执行 ad-creative -> copywriting -> ab-test-setup -> analytics-tracking。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-PAID-03</span></div>
+              <p class="workflow-name">广告到注册闭环提效</p>
+              <p class="workflow-desc">把投放、注册、激活三个阶段统一优化。</p>
+              <p class="workflow-skills">product-marketing-context -> paid-ads -> signup-flow-cro -> onboarding-cro -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-PAID-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-PAID-03：执行 paid-ads -> signup-flow-cro -> onboarding-cro -> analytics-tracking。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflow-role">
+          <h3>角色 5：增长与留存运营</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-RET-01</span></div>
+              <p class="workflow-name">流失预防与挽回</p>
+              <p class="workflow-desc">定位流失原因，设计挽回 offer、支付恢复和回流消息。</p>
+              <p class="workflow-skills">product-marketing-context -> churn-prevention -> email-sequence -> pricing-strategy -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-RET-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-RET-01：执行 churn-prevention -> email-sequence -> pricing-strategy -> analytics-tracking。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-RET-02</span></div>
+              <p class="workflow-name">推荐增长飞轮</p>
+              <p class="workflow-desc">设计推荐触发点、奖励机制、传播文案和归因链路。</p>
+              <p class="workflow-skills">product-marketing-context -> referral-program -> copywriting -> analytics-tracking -> social-content</p>
+              <div class="workflow-call"><code>调用：WF-RET-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-RET-02：执行 referral-program -> copywriting -> analytics-tracking -> social-content。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-RET-03</span></div>
+              <p class="workflow-name">免费工具增长引擎</p>
+              <p class="workflow-desc">通过 free tool 引流并导入邮件/产品激活流程。</p>
+              <p class="workflow-skills">product-marketing-context -> free-tool-strategy -> programmatic-seo -> lead-magnets -> email-sequence</p>
+              <div class="workflow-call"><code>调用：WF-RET-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-RET-03：执行 free-tool-strategy -> programmatic-seo -> lead-magnets -> email-sequence。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflow-role">
+          <h3>角色 6：销售与 GTM 负责人</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-GTM-01</span></div>
+              <p class="workflow-name">产品发布战役</p>
+              <p class="workflow-desc">整合公告、销售资料、社媒分发和线索跟进。</p>
+              <p class="workflow-skills">product-marketing-context -> launch-strategy -> sales-enablement -> social-content -> revops</p>
+              <div class="workflow-call"><code>调用：WF-GTM-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-GTM-01：执行 launch-strategy -> sales-enablement -> social-content -> revops。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-GTM-02</span></div>
+              <p class="workflow-name">竞品替代页 + 销售外联</p>
+              <p class="workflow-desc">同时覆盖搜索获客和销售触达，统一话术与资产。</p>
+              <p class="workflow-skills">product-marketing-context -> competitor-alternatives -> sales-enablement -> cold-email -> revops</p>
+              <div class="workflow-call"><code>调用：WF-GTM-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-GTM-02：执行 competitor-alternatives -> sales-enablement -> cold-email -> revops。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-GTM-03</span></div>
+              <p class="workflow-name">定价与包装升级</p>
+              <p class="workflow-desc">迭代价格体系，并联动支付墙和销售话术。</p>
+              <p class="workflow-skills">product-marketing-context -> pricing-strategy -> paywall-upgrade-cro -> sales-enablement -> ab-test-setup</p>
+              <div class="workflow-call"><code>调用：WF-GTM-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-GTM-03：执行 pricing-strategy -> paywall-upgrade-cro -> sales-enablement -> ab-test-setup。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflow-role">
+          <h3>角色 7：策略与心理模型负责人</h3>
+          <div class="workflow-list">
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-STR-01</span></div>
+              <p class="workflow-name">市场机会到执行计划</p>
+              <p class="workflow-desc">将方向性洞察快速落地为可执行季度计划。</p>
+              <p class="workflow-skills">product-marketing-context -> marketing-ideas -> content-strategy -> launch-strategy -> analytics-tracking</p>
+              <div class="workflow-call"><code>调用：WF-STR-01</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-STR-01：执行 marketing-ideas -> content-strategy -> launch-strategy -> analytics-tracking。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-STR-02</span></div>
+              <p class="workflow-name">心理触发器实验</p>
+              <p class="workflow-desc">把心理学原则转化为页面与邮件实验假设。</p>
+              <p class="workflow-skills">product-marketing-context -> marketing-psychology -> copywriting -> page-cro -> ab-test-setup</p>
+              <div class="workflow-call"><code>调用：WF-STR-02</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-STR-02：执行 marketing-psychology -> copywriting -> page-cro -> ab-test-setup。">复制调用</button></div>
+            </div>
+            <div class="workflow-item">
+              <div class="workflow-head"><span class="workflow-id">WF-STR-03</span></div>
+              <p class="workflow-name">Lead Magnet 增长链路</p>
+              <p class="workflow-desc">从 lead magnet 主题到自动化培育再到转化闭环。</p>
+              <p class="workflow-skills">product-marketing-context -> lead-magnets -> copywriting -> email-sequence -> signup-flow-cro</p>
+              <div class="workflow-call"><code>调用：WF-STR-03</code><button class="copy-inline" type="button" data-copy-text="调用工作流 WF-STR-03：执行 lead-magnets -> copywriting -> email-sequence -> signup-flow-cro。">复制调用</button></div>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
