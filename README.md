@@ -21,6 +21,7 @@ Skill 是 Markdown 文件，为 AI 代理提供特定任务的专业知识与工
 - 在线预览（GitHub Pages）：`https://platotheone.github.io/marketingskills/`
 - 临时预览（无需开启 Pages）：`https://htmlpreview.github.io/?https://raw.githubusercontent.com/PlatoTheOne/marketingskills/main/README.html`
 - 本地直接打开（Windows）：在项目目录执行 `start .\\README.html`
+- 团队发布流程与排障 SOP：[docs/preview.md](docs/preview.md)
 
 ## Skill 如何协同工作
 
