@@ -6,7 +6,7 @@
   <title>OpenClaw 营销Skills 大全 | 7Poster</title>
   <meta name="description" content="OpenClaw 营销Skills 中文导航页：覆盖 SEO、CRO、内容增长、投放与工作流模块，帮助 AI agents 快速落地营销执行。">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <meta name="theme-color" content="#00d54b">
+  <meta name="theme-color" content="#00d632">
   <link rel="canonical" href="https://mkt.7poster.com/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -1280,6 +1280,370 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     }
 
+    /* Design Constitution tune: Cash App monochrome + better breathing space */
+    :root {
+      --cash-green: #00d632;
+      --cash-green-2: #00b84f;
+      --ink: #000000;
+      --ink-soft: #0c0c0c;
+      --surface: #121212;
+      --surface-2: #181818;
+      --line: #272727;
+      --white: #ffffff;
+      --text: #f5f5f5;
+      --text-soft: #b5b5b5;
+      --shadow: 0 16px 30px rgba(0, 0, 0, 0.32);
+    }
+
+    * {
+      scrollbar-color: var(--cash-green) #060606;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: #060606;
+      border: 1px solid #1e1e1e;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00d632, #00b84f);
+      border: 2px solid #060606;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      background:
+        radial-gradient(980px 420px at 8% -10%, rgba(0, 214, 50, 0.16), transparent 58%),
+        radial-gradient(760px 360px at 92% -14%, rgba(0, 214, 50, 0.1), transparent 58%),
+        linear-gradient(180deg, #000000 0%, #070707 58%, #000000 100%);
+    }
+
+    .topbar {
+      background: rgba(0, 0, 0, 0.86);
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .brand-rest {
+      color: #ffffff;
+    }
+
+    .nav a {
+      color: var(--text-soft);
+      background: #111111;
+      border-color: var(--line);
+    }
+
+    .nav a:hover {
+      color: #f7fff8;
+      box-shadow: 0 8px 16px rgba(0, 214, 50, 0.24);
+    }
+
+    .hero-main,
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .hero p {
+      color: var(--text-soft);
+    }
+
+    .btn-ghost {
+      color: #dddddd;
+      border-color: #343434;
+      background: #151515;
+    }
+
+    section {
+      margin: 24px 0;
+      background: #101010;
+      border: 1px solid #232323;
+      padding: 34px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.26);
+    }
+
+    section > p {
+      margin-top: 14px;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .bridge-grid,
+    .openclaw-grid,
+    .category-grid {
+      margin-top: 22px;
+      gap: 18px;
+    }
+
+    .bridge-card,
+    .openclaw-trigger,
+    .org-head,
+    .org-col,
+    .chain,
+    .table-wrap,
+    .quick-cmd,
+    .card,
+    .cat,
+    .workflow-role,
+    .workflow-item,
+    .workflow-skills,
+    .workflow-intro code {
+      background: var(--surface);
+      border-color: var(--line);
+    }
+
+    .bridge-card,
+    .workflow-role {
+      box-shadow: var(--shadow);
+    }
+
+    .bridge-card {
+      padding: 18px;
+      gap: 12px;
+    }
+
+    .bridge-desc,
+    .openclaw-source,
+    .org-head p,
+    .org-col ul,
+    .workflow-desc,
+    .workflow-skills,
+    td {
+      color: var(--text-soft);
+    }
+
+    .openclaw-trigger {
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .openclaw-trigger:hover {
+      border-color: color-mix(in srgb, var(--cash-green), #222222 54%);
+    }
+
+    .openclaw-trigger::after {
+      background: rgba(12, 12, 12, 0.82);
+      color: #f2f2f2;
+      border: 1px solid #2e2e2e;
+    }
+
+    .openclaw-fallback {
+      color: var(--text-soft);
+      background:
+        radial-gradient(560px 220px at 30% -20%, rgba(0, 214, 50, 0.14), transparent 72%),
+        #121212;
+    }
+
+    .org-head {
+      padding: 20px;
+    }
+
+    .org-grid {
+      margin-top: 30px;
+      gap: 14px;
+    }
+
+    .org-grid::before,
+    .org-col::before {
+      background: #3a3a3a;
+    }
+
+    .org-col {
+      padding: 14px;
+    }
+
+    .org-col h4,
+    th,
+    td:first-child,
+    .workflow-name,
+    .role-title {
+      color: var(--text);
+    }
+
+    .org-col h4 {
+      border-bottom-color: #373737;
+    }
+
+    .chains {
+      margin-top: 18px;
+      padding: 14px;
+      border-color: #393939;
+      background: #101010;
+    }
+
+    .chain {
+      border-color: #343434;
+      color: #d8d8d8;
+    }
+
+    .toolbar {
+      margin: 20px 0 14px;
+    }
+
+    .code-wrap {
+      margin-top: 14px;
+    }
+
+    pre {
+      background: #101010;
+      border-color: #2c2c2c;
+      color: #e8e8e8;
+    }
+
+    pre:hover,
+    .quick-cmd code:hover,
+    .workflow-skills:hover,
+    .workflow-call code:hover {
+      scrollbar-color: var(--cash-green) #0a0a0a;
+    }
+
+    pre:hover::-webkit-scrollbar-track,
+    .quick-cmd code:hover::-webkit-scrollbar-track,
+    .workflow-skills:hover::-webkit-scrollbar-track,
+    .workflow-call code:hover::-webkit-scrollbar-track {
+      background: #0a0a0a;
+      border: 1px solid #232323;
+    }
+
+    pre:hover::-webkit-scrollbar-thumb,
+    .quick-cmd code:hover::-webkit-scrollbar-thumb,
+    .workflow-skills:hover::-webkit-scrollbar-thumb,
+    .workflow-call code:hover::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00d632, #00b84f);
+      border: 2px solid #0a0a0a;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .toolbar input {
+      border-color: #343434;
+      background: #101010;
+      color: #efefef;
+    }
+
+    .chip {
+      background: #111111;
+      color: #cccccc;
+    }
+
+    .table-wrap {
+      border-color: #2a2a2a;
+    }
+
+    th {
+      border-bottom-color: #2b2b2b;
+      background: #191919;
+    }
+
+    td {
+      border-bottom-color: #2b2b2b;
+    }
+
+    tr:hover td {
+      background: #161616;
+    }
+
+    .quick-cmd,
+    .card,
+    .cat {
+      padding: 16px;
+    }
+
+    .install-grid,
+    .quick-cmds {
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .quick-cmd code {
+      background: #101010;
+      border-color: #343434;
+      color: #dddddd;
+    }
+
+    .copy-inline {
+      border-color: #3d3d3d;
+      background: #191919;
+      color: #d7d7d7;
+    }
+
+    .workflow-intro {
+      margin-top: 14px;
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .workflow-grid {
+      margin-top: 24px;
+      gap: 24px;
+    }
+
+    .workflow-role {
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
+    }
+
+    .workflow-role:hover {
+      border-color: #3a3a3a;
+    }
+
+    .workflow-role:nth-child(1) .role-icon .ph { color: #00d632; }
+    .workflow-role:nth-child(2) .role-icon .ph { color: #84e33d; }
+    .workflow-role:nth-child(3) .role-icon .ph { color: #f5c542; }
+    .workflow-role:nth-child(4) .role-icon .ph { color: #5fd468; }
+    .workflow-role:nth-child(5) .role-icon .ph { color: #f79d3b; }
+    .workflow-role:nth-child(6) .role-icon .ph { color: #ff7f50; }
+    .workflow-role:nth-child(7) .role-icon .ph { color: #a8df52; }
+
+    .role-title {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .role-count {
+      border-color: #2f4f38;
+      background: #142218;
+      color: #d9f2e1;
+      padding: 6px 12px;
+    }
+
+    .role-brief {
+      margin: 2px 0 16px;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    .workflow-list {
+      gap: 14px;
+    }
+
+    .workflow-item {
+      padding: 14px;
+      gap: 10px;
+    }
+
+    .workflow-desc {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .workflow-skills {
+      background: #141414;
+      border-color: #353535;
+      color: #cfcfcf;
+      padding: 8px 10px;
+    }
+
+    .workflow-call {
+      border-color: #3b3b3b;
+      background: #131313;
+      padding: 8px 10px;
+    }
+
+    .workflow-call code {
+      color: #d8d8d8;
+    }
+
     footer {
       text-align: center;
       color: var(--text-soft);
@@ -1331,7 +1695,7 @@
       }
 
       section {
-        padding: 18px;
+        padding: 22px;
       }
 
       .hero-main {
@@ -1541,8 +1905,7 @@
     <section id="workflows">
       <h2 class="module-title"><i class="ph ph-briefcase"></i><span>岗位角色与工作流模块</span></h2>
       <div class="workflow-intro">
-        <div>结论先说：<strong>一个 skill 不是一个完整工作流</strong>。它更像单点能力；真正可执行的工作流通常由 <code>product-marketing-context + 多个 skills</code> 组合而成。</div>
-        <div>你后续只要说工作流 ID（例如 <code>WF-SEO-05</code>），我就可以按该链路自动展开执行步骤、产出模板和优化建议。</div>
+        <div>工作流通常由 <code>product-marketing-context + 多个 skills</code> 组合而成。</div>
       </div>
 
       <div class="workflow-grid">
