@@ -666,6 +666,66 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     }
 
+    pre,
+    .quick-cmd code,
+    .workflow-skills,
+    .workflow-call code {
+      scrollbar-width: none;
+      scrollbar-color: transparent transparent;
+    }
+
+    pre:hover,
+    .quick-cmd code:hover,
+    .workflow-skills:hover,
+    .workflow-call code:hover {
+      scrollbar-width: thin;
+      scrollbar-color: var(--cash-green) #0f1419;
+    }
+
+    pre::-webkit-scrollbar,
+    .quick-cmd code::-webkit-scrollbar,
+    .workflow-skills::-webkit-scrollbar,
+    .workflow-call code::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    pre::-webkit-scrollbar-track,
+    .quick-cmd code::-webkit-scrollbar-track,
+    .workflow-skills::-webkit-scrollbar-track,
+    .workflow-call code::-webkit-scrollbar-track {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 999px;
+    }
+
+    pre::-webkit-scrollbar-thumb,
+    .quick-cmd code::-webkit-scrollbar-thumb,
+    .workflow-skills::-webkit-scrollbar-thumb,
+    .workflow-call code::-webkit-scrollbar-thumb {
+      background: transparent;
+      border: 2px solid transparent;
+      border-radius: 999px;
+      box-shadow: none;
+    }
+
+    pre:hover::-webkit-scrollbar-track,
+    .quick-cmd code:hover::-webkit-scrollbar-track,
+    .workflow-skills:hover::-webkit-scrollbar-track,
+    .workflow-call code:hover::-webkit-scrollbar-track {
+      background: #0f1419;
+      border: 1px solid #28323e;
+    }
+
+    pre:hover::-webkit-scrollbar-thumb,
+    .quick-cmd code:hover::-webkit-scrollbar-thumb,
+    .workflow-skills:hover::-webkit-scrollbar-thumb,
+    .workflow-call code:hover::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00d54b, #00bf42);
+      border: 2px solid #0f1419;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.28);
+    }
+
     .copy-btn {
       position: absolute;
       top: 8px;
