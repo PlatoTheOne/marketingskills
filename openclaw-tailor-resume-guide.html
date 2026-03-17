@@ -154,6 +154,10 @@
       transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
 
+    .prompt-card.compact {
+      min-height: auto;
+    }
+
     .prompt-card:hover {
       transform: translateY(-6px);
       border-color: rgba(0, 214, 50, 0.5);
@@ -282,7 +286,7 @@
         <ul class="quick-list">
           <li>原始简历（建议 Markdown 或文本）</li>
           <li>JD 文件（1 个或多个，最好放同一个文件夹）</li>
-          <li>可选：`template.docx`（想套用的版式）</li>
+          <li>可选：提供一个你自己的 Word 版式文件（如 `my-style.docx`），用于套用排版，不是 skill 自带模板。</li>
           <li>本机有 `pandoc`（用于导出 Word）</li>
         </ul>
         <pre class="code-block"># 检查是否支持导出 docx
@@ -335,6 +339,29 @@ JD 在：D:\resume\jds\（多个JD）
 样式参考：D:\resume\template.docx
 最后给我每份简历对应的岗位文件名。</pre>
         <div class="status" id="custom-status"></div>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="prompt-card compact">
+        <div class="prompt-head">
+          <h3 class="prompt-title">高级用法：按模板输出 Word（可选）</h3>
+          <button class="btn" data-copy="template-prompt" data-status="template-status">复制高级话术</button>
+        </div>
+        <p class="hint">
+          大多数人用通用版/定制版就够了。只有你希望导出的 Word 严格沿用某个版式时，再使用这个高级话术。
+        </p>
+        <pre class="code-block" id="template-prompt">使用 $tailor-resume。
+我的简历在：D:\resume-project\resumes\
+JD 在：D:\resume-project\jds\
+
+请使用这个 Word 版式文件作为输出样式（不是读取内容用）：
+D:\resume-project\style\my-style.docx
+
+先按 JD 要求完成简历优化，再导出 .docx，并尽量保持模板中的字体、间距、标题层级和页边距。
+如果模板样式与内容冲突，请优先保证信息完整和可读性。
+最后告诉我：模板是否成功应用，以及哪些样式无法完全保留。</pre>
+        <div class="status" id="template-status"></div>
       </article>
     </section>
 
