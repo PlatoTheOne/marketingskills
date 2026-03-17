@@ -11,17 +11,19 @@
   <style>
     :root {
       --cash-green: #00d54b;
-      --cash-green-2: #00c244;
-      --ink: #0b0b0b;
-      --ink-soft: #202020;
-      --paper: #f5f5f5;
-      --paper-2: #ebebeb;
-      --line: #d4d4d4;
-      --white: #ffffff;
+      --cash-green-2: #00bf42;
+      --ink: #0a0c0e;
+      --ink-soft: #12161a;
+      --surface: #161b20;
+      --surface-2: #1c232a;
+      --line: #2a323a;
+      --white: #f4f8fb;
+      --text: #f2f5f7;
+      --text-soft: #9eaab5;
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
-      --shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      --shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
     }
 
     * {
@@ -35,11 +37,11 @@
     body {
       margin: 0;
       font-family: "Space Grotesk", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: var(--ink);
+      color: var(--text);
       background:
-        radial-gradient(1100px 520px at 10% -10%, rgba(0, 213, 75, 0.18), transparent 58%),
-        radial-gradient(900px 420px at 90% -15%, rgba(0, 213, 75, 0.13), transparent 56%),
-        linear-gradient(180deg, #f7f7f7 0%, #efefef 100%);
+        radial-gradient(1000px 500px at 8% -12%, rgba(0, 213, 75, 0.22), transparent 55%),
+        radial-gradient(900px 420px at 95% -15%, rgba(0, 213, 75, 0.16), transparent 55%),
+        linear-gradient(180deg, #090b0d 0%, #0f1317 60%, #0d1014 100%);
       line-height: 1.6;
     }
 
@@ -48,9 +50,9 @@
       inset: 0;
       pointer-events: none;
       z-index: -1;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
       background-size: 22px 22px;
-      mask-image: radial-gradient(circle at center, black 30%, transparent 90%);
+      mask-image: radial-gradient(circle at center, black 35%, transparent 88%);
     }
 
     .container {
@@ -63,8 +65,8 @@
       top: 0;
       z-index: 40;
       backdrop-filter: blur(8px);
-      background: rgba(245, 245, 245, 0.86);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(9, 11, 13, 0.82);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .topbar-inner {
@@ -102,8 +104,8 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 13px;
-      color: var(--ink);
-      background: var(--white);
+      color: #d8e1e8;
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--line);
       border-radius: 999px;
       padding: 8px 12px;
@@ -113,7 +115,8 @@
     .nav a:hover {
       border-color: var(--cash-green);
       transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 213, 75, 0.15);
+      box-shadow: 0 10px 18px rgba(0, 213, 75, 0.25);
+      color: #f7fff9;
     }
 
     .hero {
@@ -124,7 +127,7 @@
     }
 
     .hero-main {
-      background: var(--ink);
+      background: linear-gradient(170deg, #090b0d, #0b0e11 55%, #0d1115);
       color: var(--white);
       border-radius: var(--radius-xl);
       padding: 36px;
@@ -142,7 +145,7 @@
       right: -120px;
       top: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(0, 213, 75, 0.5), transparent 72%);
+      background: radial-gradient(circle at center, rgba(0, 213, 75, 0.62), transparent 72%);
     }
 
     .badge {
@@ -172,7 +175,7 @@
 
     .hero p {
       margin: 14px 0 0;
-      color: #d7d7d7;
+      color: #cad5de;
       max-width: 62ch;
       position: relative;
       z-index: 1;
@@ -207,9 +210,9 @@
     }
 
     .btn-ghost {
-      color: #f3f3f3;
-      border-color: rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.05);
+      color: #d9e4ec;
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .hero-side {
@@ -219,7 +222,7 @@
     }
 
     .metric {
-      background: var(--white);
+      background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       padding: 18px;
@@ -235,17 +238,17 @@
 
     .metric p {
       margin: 8px 0 0;
-      color: #555;
+      color: var(--text-soft);
       font-size: 14px;
     }
 
     section {
       margin: 16px 0;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(18, 23, 29, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-xl);
       padding: 26px;
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
       animation: rise 0.5s ease both;
     }
 
@@ -257,7 +260,7 @@
     }
 
     section > p {
-      color: #5b5b5b;
+      color: var(--text-soft);
       margin: 10px 0 0;
       font-size: 16px;
     }
@@ -271,8 +274,8 @@
       margin: 0 auto;
       text-align: center;
       border-radius: 16px;
-      border: 1px solid #2f2f2f;
-      background: var(--ink);
+      border: 1px solid #2a343f;
+      background: linear-gradient(160deg, #0f1419, #111922);
       color: var(--white);
       padding: 16px;
       position: relative;
@@ -297,7 +300,7 @@
 
     .org-head p {
       margin: 6px 0 0;
-      color: #d0d0d0;
+      color: #b8c5d1;
       font-size: 14px;
     }
 
@@ -316,11 +319,11 @@
       right: 2%;
       top: -12px;
       height: 2px;
-      background: #bababa;
+      background: #40505f;
     }
 
     .org-col {
-      background: var(--white);
+      background: var(--surface);
       border-radius: 14px;
       border: 1px solid var(--line);
       padding: 12px;
@@ -332,7 +335,7 @@
       content: "";
       width: 2px;
       height: 12px;
-      background: #bababa;
+      background: #40505f;
       position: absolute;
       left: 50%;
       top: -12px;
@@ -342,8 +345,8 @@
     .org-col h4 {
       margin: 0 0 8px;
       font-size: 14px;
-      color: #0f0f0f;
-      border-bottom: 1px dashed #d9d9d9;
+      color: #eef5fb;
+      border-bottom: 1px dashed #344150;
       padding-bottom: 6px;
     }
 
@@ -351,25 +354,26 @@
       margin: 0;
       padding-left: 16px;
       font-size: 13px;
-      color: #393939;
+      color: #bac6d2;
     }
 
     .chains {
       margin-top: 14px;
       padding: 12px;
       border-radius: 14px;
-      border: 1px dashed #c9c9c9;
-      background: #f8f8f8;
+      border: 1px dashed #33404d;
+      background: rgba(255, 255, 255, 0.02);
       font-size: 14px;
     }
 
     .chain {
       margin: 6px 0;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      background: #fff;
-      border: 1px solid #e3e3e3;
+      background: #11161c;
+      border: 1px solid #2e3a47;
       border-radius: 10px;
       padding: 6px 10px;
+      color: #d5dfe8;
     }
 
     .toolbar {
@@ -382,15 +386,16 @@
 
     .toolbar input {
       width: min(420px, 100%);
-      border: 1px solid var(--line);
+      border: 1px solid #394451;
       border-radius: 12px;
       padding: 10px 12px;
       font-size: 14px;
-      background: #fff;
+      background: #10161c;
+      color: #eaf1f7;
     }
 
     .muted {
-      color: #656565;
+      color: var(--text-soft);
       font-size: 14px;
     }
 
@@ -407,8 +412,8 @@
       padding: 7px 12px;
       font-size: 12px;
       font-weight: 700;
-      background: #fff;
-      color: #171717;
+      background: #11161c;
+      color: #c6d1da;
       cursor: pointer;
       transition: all 0.2s ease;
     }
@@ -429,7 +434,7 @@
       overflow: auto;
       border-radius: 16px;
       border: 1px solid var(--line);
-      background: #fff;
+      background: #121920;
     }
 
     table {
@@ -443,7 +448,8 @@
       text-align: left;
       padding: 12px;
       border-bottom: 1px solid var(--line);
-      background: #f4f4f4;
+      background: #151d25;
+      color: #eaf3fa;
       position: sticky;
       top: 0;
       z-index: 1;
@@ -451,19 +457,20 @@
 
     td {
       padding: 12px;
-      border-bottom: 1px solid #efefef;
+      border-bottom: 1px solid #283441;
       vertical-align: top;
+      color: #c8d4de;
     }
 
     tr:hover td {
-      background: #fcfcfc;
+      background: #17212a;
     }
 
     td:first-child {
       white-space: nowrap;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
       font-weight: 700;
-      color: #111;
+      color: #f2f7fc;
     }
 
     .install-grid {
@@ -483,7 +490,7 @@
 
     .quick-cmd {
       border: 1px solid var(--line);
-      background: #fff;
+      background: #121920;
       border-radius: 14px;
       padding: 10px 12px;
       display: grid;
@@ -495,15 +502,17 @@
       align-items: center;
       justify-content: space-between;
       gap: 8px;
+      color: #e6eff7;
       font-size: 14px;
       font-weight: 700;
     }
 
     .quick-cmd code {
       display: block;
-      border: 1px solid #e4e4e4;
+      border: 1px solid #2b3743;
       border-radius: 10px;
-      background: #fbfbfb;
+      background: #0f1419;
+      color: #d8e4ef;
       padding: 8px 10px;
       overflow: auto;
       font-size: 13px;
@@ -512,9 +521,9 @@
     }
 
     .copy-inline {
-      border: 1px solid #cfcfcf;
-      background: #f9f9f9;
-      color: #111;
+      border: 1px solid #41505f;
+      background: #18212a;
+      color: #d2dee8;
       border-radius: 999px;
       padding: 5px 10px;
       font-size: 12px;
@@ -538,7 +547,7 @@
     .card {
       border: 1px solid var(--line);
       border-radius: 16px;
-      background: #fff;
+      background: #121920;
       padding: 14px;
       min-height: 100%;
     }
@@ -557,7 +566,7 @@
 
     .card p {
       margin: 0;
-      color: #5d5d5d;
+      color: var(--text-soft);
       font-size: 15px;
     }
 
@@ -614,7 +623,7 @@
     }
 
     .cat {
-      background: #fff;
+      background: #121920;
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 12px;
@@ -629,18 +638,18 @@
       margin: 0;
       padding-left: 16px;
       font-size: 14px;
-      color: #3d3d3d;
+      color: #bac7d2;
     }
 
     footer {
       text-align: center;
-      color: #5d5d5d;
+      color: var(--text-soft);
       padding: 24px 0 34px;
       font-size: 14px;
     }
 
     footer a {
-      color: #111;
+      color: var(--cash-green);
       text-decoration: none;
       font-weight: 700;
     }
@@ -732,8 +741,7 @@
         <p>核心覆盖：转化优化、文案写作、SEO、数据分析、增长工程、RevOps。</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://github.com/PlatoTheOne/marketingskills" target="_blank" rel="noreferrer">查看仓库</a>
-          <a class="btn btn-ghost" href="README.md">查看 README.md</a>
-          <a class="btn btn-ghost" href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/PlatoTheOne/marketingskills/main/README.html" target="_blank" rel="noreferrer">临时在线预览</a>
+          <a class="btn btn-ghost" href="https://github.com/PlatoTheOne/marketingskills/blob/main/README.md" target="_blank" rel="noreferrer">查看 README.md</a>
         </div>
       </article>
 
