@@ -256,8 +256,8 @@
       <span class="badge">OpenClaw 可用</span>
       <h1>Tailor Resume 简历裁缝 Skill 安装使用指南</h1>
       <p class="lead">
-        这个 skill 的核心作用是：把你的原始简历和 JD 一起读进去，自动生成更匹配岗位的简历版本。
-        支持单 JD、批量 JD、输出 Word（.docx），适合快速投递和岗位定向优化。
+        这个 skill 的核心作用是：把你的原始简历和 JD（岗位要求）一起读进去，自动生成更匹配岗位的简历版本。
+        支持单个 JD（岗位要求）、批量 JD（岗位要求）、输出 Word（.docx），适合快速投递和岗位定向优化。
       </p>
     </section>
 
@@ -285,19 +285,20 @@
         <h2>你要准备的材料</h2>
         <ul class="quick-list">
           <li>原始简历（建议 Markdown 或文本）</li>
-          <li>JD 文件（1 个或多个，最好放同一个文件夹）</li>
+          <li>JD（岗位要求）文件（1 个或多个，最好放同一个文件夹）</li>
           <li>可选：提供一个你自己的 Word 版式文件（如 `my-style.docx`），用于套用排版，不是 skill 自带模板。</li>
-          <li>本机有 `pandoc`（用于导出 Word）</li>
+          <li>可选（只在你要 Word 文件时）：电脑里安装一个“文档转换器” `pandoc`（用于把内容导出成 .docx）。</li>
         </ul>
-        <pre class="code-block"># 检查是否支持导出 docx
-pandoc --version</pre>
+        <pre class="code-block">不会命令行也没关系：
+直接让 OpenClaw 帮你检查并安装 pandoc。
+你只要说：“请检查我电脑有没有 pandoc，没有就帮我安装。”</pre>
       </article>
 
       <article class="card">
         <h2>怎么选：通用版 vs 定制版</h2>
         <ul class="quick-list">
-          <li>通用版：一份简历覆盖多个 JD，省时间但匹配度中等。</li>
-          <li>定制版：每个 JD 一份简历，最匹配，投递命中率更高。</li>
+          <li>通用版：一份简历覆盖多个 JD（岗位要求），省时间但匹配度中等。</li>
+          <li>定制版：每个 JD（岗位要求）一份简历，最匹配，投递命中率更高。</li>
           <li>推荐策略：先做 1 份通用版，再给重点岗位做定制版。</li>
         </ul>
       </article>
@@ -310,17 +311,17 @@ pandoc --version</pre>
           <button class="btn" data-copy="general-prompt" data-status="general-status">复制话术</button>
         </div>
         <p class="hint">
-          适合一次性覆盖多个 JD。会先提炼共性，再输出 1 份“通用版”并标注各 JD 匹配度。
+          适合一次性覆盖多个 JD（岗位要求）。会先提炼共性，再输出 1 份“通用版”并标注各 JD（岗位要求）匹配度。
         </p>
         <pre class="code-block" id="general-prompt">使用 $tailor-resume。
 我的简历在：D:\resume\all\
-JD 在：D:\resume\jds\（多个JD）
+JD（岗位要求）在：D:\resume\jds\（多个 JD（岗位要求））
 
-请读取所有JD后，先提炼共同要求（高频技能、核心职责、硬性条件），
+请读取所有 JD（岗位要求）后，先提炼共同要求（高频技能、核心职责、硬性条件），
 再基于我的原始简历生成“一份通用版”中文简历（1页），并导出 .docx。
 样式参考：D:\resume\template.docx
 
-最后请附一张简表：对每个JD的匹配度（高/中/低）+ 主要缺口（1-3条）。</pre>
+最后请附一张简表：对每个 JD（岗位要求）的匹配度（高/中/低）+ 主要缺口（1-3条）。</pre>
         <div class="status" id="general-status"></div>
       </article>
 
@@ -330,12 +331,12 @@ JD 在：D:\resume\jds\（多个JD）
           <button class="btn" data-copy="custom-prompt" data-status="custom-status">复制话术</button>
         </div>
         <p class="hint">
-          适合重点投递。每个 JD 生成一份对应简历和 Word，匹配度最高。
+          适合重点投递。每个 JD（岗位要求）生成一份对应简历和 Word，匹配度最高。
         </p>
         <pre class="code-block" id="custom-prompt">使用 $tailor-resume。
 我的简历在：D:\resume\all\
-JD 在：D:\resume\jds\（多个JD）
-先分析所有JD的共同要求，再为每个JD分别生成一份定制简历，并导出 .docx。
+JD（岗位要求）在：D:\resume\jds\（多个 JD（岗位要求））
+先分析所有 JD（岗位要求）的共同要求，再为每个 JD（岗位要求）分别生成一份定制简历，并导出 .docx。
 样式参考：D:\resume\template.docx
 最后给我每份简历对应的岗位文件名。</pre>
         <div class="status" id="custom-status"></div>
@@ -353,12 +354,12 @@ JD 在：D:\resume\jds\（多个JD）
         </p>
         <pre class="code-block" id="template-prompt">使用 $tailor-resume。
 我的简历在：D:\resume-project\resumes\
-JD 在：D:\resume-project\jds\
+JD（岗位要求）在：D:\resume-project\jds\
 
 请使用这个 Word 版式文件作为输出样式（不是读取内容用）：
 D:\resume-project\style\my-style.docx
 
-先按 JD 要求完成简历优化，再导出 .docx，并尽量保持模板中的字体、间距、标题层级和页边距。
+先按 JD（岗位要求）要求完成简历优化，再导出 .docx，并尽量保持模板中的字体、间距、标题层级和页边距。
 如果模板样式与内容冲突，请优先保证信息完整和可读性。
 最后告诉我：模板是否成功应用，以及哪些样式无法完全保留。</pre>
         <div class="status" id="template-status"></div>
@@ -399,3 +400,4 @@ D:\resume-project\style\my-style.docx
   </script>
 </body>
 </html>
+
