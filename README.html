@@ -28,6 +28,30 @@
 
     * {
       box-sizing: border-box;
+      scrollbar-width: thin;
+      scrollbar-color: var(--cash-green) #0f1419;
+    }
+
+    *::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: #0f1419;
+      border: 1px solid #28323e;
+      border-radius: 999px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00d54b, #00bf42);
+      border: 2px solid #0f1419;
+      border-radius: 999px;
+      box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.28);
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #11e05a, #00c947);
     }
 
     html {
@@ -293,6 +317,15 @@
       animation: rise 0.5s ease both;
     }
 
+    section.hero {
+      margin: 26px 0 16px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      animation: none;
+    }
+
     section h2 {
       margin: 0;
       font-size: clamp(28px, 3.4vw, 42px);
@@ -527,6 +560,10 @@
       gap: 10px;
       margin-top: 14px;
       margin-bottom: 8px;
+    }
+
+    .quick-cmd-wide {
+      grid-column: 1 / -1;
     }
 
     .quick-cmd {
@@ -1284,6 +1321,13 @@
       <h2>安装方式</h2>
       <p>README 中的 6 种安装方式继续沿用。</p>
       <div class="quick-cmds">
+        <article class="quick-cmd quick-cmd-wide">
+          <div class="quick-head">
+            <span>OpenClaw 自然语言安装（推荐）</span>
+            <button class="copy-inline" type="button" data-copy-text="请帮我安装 coreyhaines31/marketingskills 的全部 skills。安装完成后请列出已安装的 skills，并验证是否可用；如果有更新也请一并更新。">复制</button>
+          </div>
+          <code>请帮我安装 coreyhaines31/marketingskills 的全部 skills。安装完成后列出已安装 skills，并验证可用性。</code>
+        </article>
         <article class="quick-cmd">
           <div class="quick-head">
             <span>安装全部 skills</span>
