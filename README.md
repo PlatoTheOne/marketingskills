@@ -14,6 +14,14 @@
 
 Skill 是 Markdown 文件，为 AI 代理提供特定任务的专业知识与工作流。把它们加入项目后，你的代理就能识别你正在处理营销任务，并自动应用合适的方法框架与最佳实践。
 
+## 网页版预览
+
+如果你想按网页方式查看本仓库的介绍内容，可使用以下方式：
+
+- 在线预览（GitHub Pages）：`https://platotheone.github.io/marketingskills/`
+- 临时预览（无需开启 Pages）：`https://htmlpreview.github.io/?https://raw.githubusercontent.com/PlatoTheOne/marketingskills/main/README.html`
+- 本地直接打开（Windows）：在项目目录执行 `start .\\README.html`
+
 ## Skill 如何协同工作
 
 各个 skill 会互相引用，并构建在共享上下文之上。`product-marketing-context` 是基础 skill - 其他所有 skill 在执行前都会先读取它，以理解你的产品、受众和定位。
