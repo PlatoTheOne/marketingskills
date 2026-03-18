@@ -188,6 +188,7 @@
     .nav {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 8px;
     }
 
@@ -1366,6 +1367,15 @@
       box-shadow: 0 8px 16px rgba(0, 214, 50, 0.22);
     }
 
+    .nav-divider {
+      width: 1px;
+      height: 22px;
+      background: color-mix(in srgb, var(--cash-green), #1f1f1f 65%);
+      margin: 0 4px 0 2px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
     .hero-main,
     .metric {
       background: var(--surface);
@@ -1882,8 +1892,8 @@
         align-items: flex-start;
       }
 
-      .top-update-btn {
-        align-self: flex-start;
+      .nav-divider {
+        display: none;
       }
 
       section {
@@ -1948,10 +1958,11 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="https://7poster.com/en" target="_blank" rel="noreferrer"><span class="brand-seven">7</span><span class="brand-rest">Poster.com</span></a>
-      <button id="releaseOpenBtn" class="top-update-btn" type="button" aria-haspopup="dialog" aria-controls="releaseModal" data-ga4-event="release_modal_open" data-ga4-source="topbar" data-ga4-content="v1_4_0">
-        <i class="ph ph-bell-ringing"></i><span>更新</span>
-      </button>
       <nav class="nav">
+        <button id="releaseOpenBtn" class="top-update-btn" type="button" aria-haspopup="dialog" aria-controls="releaseModal" data-ga4-event="release_modal_open" data-ga4-source="topbar" data-ga4-content="v1_4_0">
+          <i class="ph ph-bell-ringing"></i><span>更新</span>
+        </button>
+        <span class="nav-divider" aria-hidden="true"></span>
         <a href="#intro">概览</a>
         <a href="#openclaw">OpenClaw</a>
         <a href="#bridge">桥接增长</a>
