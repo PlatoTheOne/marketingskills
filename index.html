@@ -1369,12 +1369,14 @@
 
     .bridge-grid,
     .openclaw-grid,
-    .category-grid {
+    .category-grid,
+    .release-grid {
       margin-top: 22px;
       gap: 18px;
     }
 
     .bridge-card,
+    .release-card,
     .openclaw-trigger,
     .org-head,
     .org-col,
@@ -1401,7 +1403,77 @@
       gap: 12px;
     }
 
+    .release-lead {
+      margin-top: 12px;
+      max-width: 72ch;
+    }
+
+    .release-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+    }
+
+    .release-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .release-tag {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      border: 1px solid #2f4f38;
+      background: #142218;
+      color: #d9f2e1;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14px;
+    }
+
+    .release-title {
+      margin: 0;
+      color: var(--text);
+      font-size: 19px;
+      line-height: 1.35;
+      letter-spacing: -0.2px;
+    }
+
+    .release-desc {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.72;
+    }
+
+    .release-note {
+      margin: 0;
+      color: #d6d6d6;
+      font-size: 13px;
+      line-height: 1.66;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: #141414;
+      border: 1px solid #353535;
+      border-radius: 10px;
+      padding: 8px 10px;
+      overflow: auto;
+      white-space: nowrap;
+    }
+
+    .release-foot {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
     .bridge-desc,
+    .release-desc,
     .openclaw-source,
     .org-head p,
     .org-col ul,
@@ -1675,6 +1747,10 @@
         grid-template-columns: repeat(2, minmax(220px, 1fr));
       }
 
+      .release-grid {
+        grid-template-columns: 1fr;
+      }
+
       .openclaw-grid {
         grid-template-columns: 1fr;
       }
@@ -1719,7 +1795,8 @@
       .org-grid,
       .install-grid,
       .category-grid,
-      .bridge-grid {
+      .bridge-grid,
+      .release-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1757,6 +1834,7 @@
       <a class="brand" href="https://7poster.com/en" target="_blank" rel="noreferrer"><span class="brand-seven">7</span><span class="brand-rest">Poster.com</span></a>
       <nav class="nav">
         <a href="#intro">概览</a>
+        <a href="#release">更新</a>
         <a href="#openclaw">OpenClaw</a>
         <a href="#bridge">桥接增长</a>
         <a href="#org">组织图</a>
@@ -1787,6 +1865,40 @@
         <div class="metric"><h3>7</h3><p>能力域协同组织</p></div>
         <div class="metric"><h3>6</h3><p>安装路径（CLI / 插件 / Submodule / SkillKit 等）</p></div>
       </aside>
+    </section>
+
+    <section id="release">
+      <h2 class="module-title"><i class="ph ph-sparkle"></i><span>v1.4.0 更新速览</span></h2>
+      <p class="release-lead">你截图里的这批上游更新已进入当前分支。这里给你一个可直接执行的简明版本，方便团队快速理解和落地。</p>
+      <div class="release-grid">
+        <article class="release-card">
+          <span class="release-tag">新增 Skill</span>
+          <h3 class="release-title">/lead-magnets</h3>
+          <p class="release-desc">用于高转化 Lead Magnet 策略，包括题材选择、注册文案、交付机制与培育节奏设计。</p>
+          <p class="release-note">应用链路：lead-magnets -> copywriting -> email-sequence</p>
+        </article>
+        <article class="release-card">
+          <span class="release-tag">集成能力</span>
+          <h3 class="release-title">Composio Integration</h3>
+          <p class="release-desc">通过单一 MCP Server 连接 HubSpot、Salesforce、Meta Ads、LinkedIn Ads、Google Sheets、Slack、Notion 等 500+ 工具。</p>
+          <p class="release-note">价值：减少 API key 和 OAuth 连接管理成本</p>
+        </article>
+        <article class="release-card">
+          <span class="release-tag">质量提升</span>
+          <h3 class="release-title">197 Eval 覆盖 33 Skills</h3>
+          <p class="release-desc">核心技能已具备自动化对话测试与边界断言，便于持续集成和回归验证。</p>
+          <p class="release-note">结果：skills 执行稳定性和可维护性明显提升</p>
+        </article>
+        <article class="release-card">
+          <span class="release-tag">工具扩展</span>
+          <h3 class="release-title">CLI 工具总数 61</h3>
+          <p class="release-desc">本次新增 10 个 CLI：airops、clay、close、coupler、crossbeam、outreach、pendo、similarweb、supermetrics、zoominfo。</p>
+          <div class="release-foot">
+            <button class="copy-inline" type="button" data-copy-text="npx skills add coreyhaines31/marketingskills">复制安装命令</button>
+            <a class="btn btn-ghost" href="https://github.com/coreyhaines31/marketingskills/blob/main/VERSIONS.md" target="_blank" rel="noreferrer">查看更新明细</a>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="openclaw">
